@@ -1,10 +1,9 @@
-public class Item {
+public abstract class Item {
 
-    private String graphic;
-    private String name;
-    private int x;
-    private int y;
-    private String event;
+    protected String graphic;
+    protected String name;
+    protected int x;
+    protected int y;
 
     public Item ( String graphic, String name, int x, int y, String event ){
 
@@ -12,7 +11,6 @@ public class Item {
         this.name = name;
         this.x = x;
         this.y = y;
-        this.event = event;
 
     }
 
@@ -32,10 +30,6 @@ public class Item {
         this.y = y;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
-    }
-
     public String getName() {
         return name;
     }
@@ -52,7 +46,4 @@ public class Item {
         return y;
     }
 
-    public String getEvent() {
-        return event;
-    }
 }
