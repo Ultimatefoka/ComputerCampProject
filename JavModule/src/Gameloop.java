@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
-public class Gameloop implements InputListener{
+public class Gameloop {
 
     private boolean running=true;
-    public ArrayList<InputManager.Event> events;
 
     public void run(){
 
@@ -16,8 +15,5 @@ public class Gameloop implements InputListener{
             }
         }
     }
-    @Override
-    public void onPlayerMove(InputManager.Event event){
-        events.add(event);
-    }
+
 }
