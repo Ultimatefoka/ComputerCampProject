@@ -1,31 +1,31 @@
 public class Tile {
 
-    private String grafik;
+    private String graphic;
     private String name;
-    private boolean begehbar;
+    private boolean traversable;
 
-    public Tile(String grafik, String name, boolean begehbar) {
+    public Tile(String graphic, String name, boolean traversable) {
 
-        this.grafik = grafik;
+        this.graphic = graphic;
         this.name = name;
-        this.begehbar = begehbar;
+        this.traversable = traversable;
         
     }
 
-    public void setGrafik(String grafik) {
-        this.grafik = grafik;
+    public void setGrafik(String graphic) {
+        this.graphic = graphic;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setBegehbar(boolean begehbar) {
-        this.begehbar = begehbar;
+    public void setBegehbar(boolean traversable) {
+        this.traversable = traversable;
     }
 
     public String getGrafik() {
-        return grafik;
+        return graphic;
     }
 
     public String getName() {
@@ -33,6 +33,6 @@ public class Tile {
     }
 
     public boolean isBegehbar() {
-        return begehbar;
+        return traversable;
     }
 }

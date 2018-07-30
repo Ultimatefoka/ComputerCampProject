@@ -1,22 +1,22 @@
-public class Item {
+public class NPC {
 
     private String graphic;
     private String name;
     private int x;
     private int y;
-    private String event;
+    private String behaviour;
 
-    public Item ( String graphic, String name, int x, int y, String event ){
+    public NPC ( String graphic, String name, int x, int y, String behaviour) {
 
         this.graphic = graphic;
         this.name = name;
         this.x = x;
         this.y = y;
-        this.event = event;
+        this.behaviour = behaviour;
 
     }
 
-    public void setGrafik(String graphic) {
+    public void setGraphic(String graphic) {
         this.graphic = graphic;
     }
 
@@ -32,15 +32,15 @@ public class Item {
         this.y = y;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getGrafik() {
+    public String getGraphic() {
         return graphic;
     }
 
@@ -52,7 +52,7 @@ public class Item {
         return y;
     }
 
-    public String getEvent() {
-        return event;
+    public String getBehaviour() {
+        return behaviour;
     }
 }
