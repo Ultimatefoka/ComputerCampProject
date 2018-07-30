@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ComputerCampProject.iml" filepath="$PROJECT_DIR$/ComputerCampProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavModule/JavModule.iml" filepath="$PROJECT_DIR$/JavModule/JavModule.iml" />
     </modules>
   </component>
