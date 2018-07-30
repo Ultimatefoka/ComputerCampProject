@@ -24,6 +24,15 @@ public class Gameloop implements Runnable{
     }
     public void render(){
         gameframe.clearMapImages();
+        for(int x=GameAssets.getInstance().getPlayer().getY()-8;x<GameAssets.getInstance().getPlayer().getX()+8;x++){
+            for(int y=GameAssets.getInstance().getPlayer().getY()-8;y<GameAssets.getInstance().getPlayer().getY()+8;y++){
+                if(x<0||y<0){
+
+                }else{
+                   // gameframe.addImage(GameAssets.getInstance().getMap("map1").getTiles()[x][y].getGrafik(),x,y);
+                }
+            }
+        }
         gameframe.clearImages();
         gameframe.repaint();
     }
