@@ -14,12 +14,18 @@ public class Gameloop implements Runnable{
         gameframe.setVisible(true);
         while(running){
             GameManager.getInstance().update();
+            render();
             try {
 
                 Thread.sleep(40);
             } catch (Exception ex) {
             }
         }
+    }
+    public void render(){
+        gameframe.clearMapImages();
+        gameframe.clearImages();
+        gameframe.repaint();
     }
 
 }

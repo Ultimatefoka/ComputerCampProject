@@ -6,7 +6,7 @@ public class GameAssets {
     private ArrayList<Door> doors;
     private ArrayList<Collectible> collectibles;
     private ArrayList<NPC> NPCs;
-    //private Player player;
+    private Player player;
     private ArrayList<Map> maps;
 
 
@@ -48,5 +48,13 @@ public class GameAssets {
 
     public void setMaps(ArrayList<Map> maps) {
         this.maps = maps;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
