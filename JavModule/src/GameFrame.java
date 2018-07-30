@@ -37,9 +37,9 @@ public class GameFrame extends JFrame {
 		gpanel.setImages(list);
 	}
 	
-	/*public void setText(List<GameText> gtext) {
+	public void setText(List<GameText> gtext) {
 		gpanel.setText(gtext);
-	}*/
+	}
 	
 	public void removeLastImage() {
 		gpanel.removeLastImage();
@@ -48,7 +48,8 @@ public class GameFrame extends JFrame {
 	public void clearImages() {
 		gpanel.clearImages();
 	}
-	public void clearMapImages(){
+
+	public void clearMapImages() {
 		gpanel.clearMapImages();
 	}
 
