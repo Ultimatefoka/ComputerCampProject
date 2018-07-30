@@ -1,0 +1,4 @@
+{
+  "tiles": [ { "graphic":"placeHolder.jpg", "name":"grass", "traversable":"true" }, { "graphic":"placeHolder.jpg", "name":"stone", "traversable":"true" },
+    { "graphic":"placeHolder.jpg", "name":"wall", "traversable":"false" } ]
+}
