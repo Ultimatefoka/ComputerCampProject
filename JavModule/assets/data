@@ -19,5 +19,7 @@
     ["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
     ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
     ["stone", "stone", "stone", "stone", "stone", "stone", "grass", "grass", "grass"] ] }
-  ]
+  ],
+
+  "player": { "graphic":"placeHolder.jpg", "name":"Bob", "x":"7", "y":"3" }
 }
