@@ -6,6 +6,6 @@ public class Tile {
 
     public Tile(String grafik) {
 
-        
+
     }
 }
