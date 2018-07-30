@@ -1,11 +1,13 @@
 public abstract class Item {
 
-    protected String graphic;
-    protected String name;
-    protected int x;
-    protected int y;
+    private String graphic;
+    private String name;
+    private int x;
+    private int y;
 
-    public Item ( String graphic, String name, int x, int y, String event ){
+    public Item () {}
+
+    public Item ( String graphic, String name, int x, int y){
 
         this.graphic = graphic;
         this.name = name;
@@ -14,7 +16,7 @@ public abstract class Item {
 
     }
 
-    public void setGrafik(String graphic) {
+    public void setGraphic(String graphic) {
         this.graphic = graphic;
     }
 
@@ -34,7 +36,7 @@ public abstract class Item {
         return name;
     }
 
-    public String getGrafik() {
+    public String getGraphic() {
         return graphic;
     }
 
