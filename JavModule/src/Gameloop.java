@@ -9,9 +9,7 @@ public class Gameloop {
             try {
 
                 Thread.sleep(40);
-
             } catch (Exception ex) {
-
             }
         }
     }
