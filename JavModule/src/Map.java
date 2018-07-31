@@ -5,7 +5,7 @@ public class Map {
     private int sizeX;
     private int sizeY;
 
-    public Map (String name, String[][] tiles, int sizeX, int sizeY) {
+    public Map(String name, String[][] tiles, int sizeX, int sizeY) {
 
         this.name = name;
         this.tiles = tiles;

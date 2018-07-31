@@ -9,7 +9,7 @@ public class Tile {
         this.graphic = graphic;
         this.name = name;
         this.traversable = traversable;
-        
+
     }
 
     public void setGraphik(String graphic) {
