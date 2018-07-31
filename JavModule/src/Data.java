@@ -1,5 +1,9 @@
 import java.io.File;
 import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class Data {
 
@@ -21,8 +25,19 @@ public class Data {
         if(gameAssetsInstance == null) {
 
             File dataFile = new File("assets/data.json");
+            Gson gson = new  Gson();
+            JsonReader reader;
 
+            try {
 
+                reader = new JsonReader(new FileReader(dataFile));
+            } catch(FileNotFoundException e) {
+
+                e.printStackTrace();
+                return null;
+            }
+
+            gameAssetsInstance = gson.fromJson(reader, GameAssets.class);
 
         }
 
