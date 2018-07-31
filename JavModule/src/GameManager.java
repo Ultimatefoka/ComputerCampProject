@@ -8,6 +8,7 @@ public class GameManager implements InputListener{
     private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
     private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/grass.png" ));
     private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
+    private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
     private static GameManager Manager=null;
     private ArrayList<Tile[][]>  maps;
@@ -46,7 +47,7 @@ public class GameManager implements InputListener{
     }
 
     /*public Map getMap(String name){
-        for(Map map : maps) {
+        for(Map map : Data.getGameAssetsInstance().maps) {
             if (name.equals(map.getName())){
                 return map;
             }
