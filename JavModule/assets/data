@@ -10,12 +10,12 @@
   "NPCs": [ { "graphic":"placeHolder.jpg", "name":"spider", "x":"1", "y":"5", "behavior":"walk1", "map":"map1" },
     { "graphic":"placeHolder.jpg", "name":"giantGiant", "x":"9", "y":"1", "behavior":"walk2", "map":"map1" } ],
 
-  "maps": [ { "name":"map1", "tiles": [
+  "maps": [ { "name":"map1", "sizeX":"9", "sizeY":"3", "tiles": [
     [ "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass" ],
     [ "stone", "stone", "stone", "stone", "stone", "stone", "grass", "grass", "grass" ],
     [ "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall" ] ] },
 
-    { "name":"map2", "tiles": [
+    { "name":"map2", "sizeX":"9", "sizeY":"3", "tiles": [
     ["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
     ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
     ["stone", "stone", "stone", "stone", "stone", "stone", "grass", "grass", "grass"] ] }
