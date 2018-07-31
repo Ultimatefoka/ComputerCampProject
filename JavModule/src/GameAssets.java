@@ -57,25 +57,4 @@ public class GameAssets {
     public void setPlayer(Player player) {
         this.player = player;
     }
-
-    public Map getMap(String name){
-        for(Map map:maps) {
-            if (name.equals(map.getName())){
-                return map;
-            }
-        }
-        return null;
-    }
-
-    public ArrayList<Door> doorsInMap(String name){
-        ArrayList<Door> doors=null;
-        for(Door door:this.doors){
-            if(name.equals(door.getMap())){
-                doors.add(door);
-            }
-        }
-        return doors;
-    }
-
-    
 }
