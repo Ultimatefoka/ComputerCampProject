@@ -43,7 +43,7 @@ public class GameManager implements InputListener{
     }
 
     /*public Map getMap(String name){
-        for(Map map : maps) {
+        for(Map map : Data.getGameAssetsInstance().maps) {
             if (name.equals(map.getName())){
                 return map;
             }
