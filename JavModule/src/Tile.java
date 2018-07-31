@@ -12,7 +12,7 @@ public class Tile {
         
     }
 
-    public void setGrafik(String graphic) {
+    public void setGraphik(String graphic) {
         this.graphic = graphic;
     }
 
@@ -20,11 +20,11 @@ public class Tile {
         this.name = name;
     }
 
-    public void setBegehbar(boolean traversable) {
+    public void setTraversable(boolean traversable) {
         this.traversable = traversable;
     }
 
-    public String getGrafik() {
+    public String getGraphic() {
         return graphic;
     }
 
@@ -32,7 +32,7 @@ public class Tile {
         return name;
     }
 
-    public boolean isBegehbar() {
+    public boolean isTraversable() {
         return traversable;
     }
 }
