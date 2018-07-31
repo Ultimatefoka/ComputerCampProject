@@ -1,6 +1,6 @@
 {
-  "tiles": [ { "graphic":"placeHolder.jpg", "name":"grass", "traversable":true }, { "graphic":"placeHolder.jpg", "name":"stone", "traversable":true },
-    { "graphic":"placeHolder.jpg", "name":"wall", "traversable":false } ],
+  "tiles": [ { "graphic":"grass", "name":"grass", "traversable":true }, { "graphic":"stone", "name":"stone", "traversable":true },
+    { "graphic":"wall", "name":"wall", "traversable":false } ],
 
   "doors": [ { "graphic":"placeHolder.jpg", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
     { "graphic":"placeHolder.jpg", "name":"door2", "x":"2", "y":"8", "targetX":"2", "targetY":"7", "targetMap":"Map2", "map":"map1" } ],
@@ -21,5 +21,5 @@
     ["stone", "stone", "stone", "stone", "stone", "stone", "grass", "grass", "grass"] ] }
   ],
 
-  "player": { "graphic":"placeHolder.jpg", "name":"Bob", "x":"7", "y":"3" }
+  "player": { "graphic":"placeHolder.jpg", "x":"7", "y":"3" }
 }
