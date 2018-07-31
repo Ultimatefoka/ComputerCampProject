@@ -7,6 +7,7 @@ public class GameManager implements InputListener{
     private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
     private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/grass.png" ));
     private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
+    private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
     private static GameManager Manager=null;
     public GameManager() throws IOException {
