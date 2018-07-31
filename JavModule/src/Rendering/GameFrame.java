@@ -26,6 +26,9 @@ public class GameFrame extends JFrame {
 	public void addImage(BufferedImage img, int x, int y) {
 		gpanel.addImage(img, x, y);
 	}
+	public void addMapImage(BufferedImage img, int x, int y) {
+		gpanel.addMapImage(img, x, y);
+	}
 	/*
 	public void addText(GameText text ) {
 		gpanel.addText(text);

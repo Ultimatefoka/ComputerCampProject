@@ -16,10 +16,11 @@ public class Gameloop implements Runnable{
         while(running){
             try {
                 GameManager.getInstance().update();
+                render("map1");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            render("map1");
+
             try {
 
                 Thread.sleep(40);
@@ -27,23 +28,23 @@ public class Gameloop implements Runnable{
             }
         }
     }
-    public void render(String map){
+    public void render(String map) throws IOException {
         gameframe.clearMapImages();
-        for(int x=GameAssets.getInstance().getPlayer().getY()-8;x<GameAssets.getInstance().getPlayer().getX()+8;x++){
-            for(int y=GameAssets.getInstance().getPlayer().getY()-8;y<GameAssets.getInstance().getPlayer().getY()+8;y++){
+        for(int x=GameManager.getInstance().getGameAssets().getPlayer().getY()-8;x<GameManager.getInstance().getGameAssets().getPlayer().getX()+8;x++){
+            for(int y=GameManager.getInstance().getGameAssets().getPlayer().getY()-8;y<GameManager.getInstance().getGameAssets().getPlayer().getY()+8;y++){
                 if(x<0||y<0){
-                    //gameframe.clearMapImages(GameManager.getInstance().getBI("black"),x,y);
+                    gameframe.addImage(GameManager.getInstance().getBI("black"),x,y);
                 }else{
-                   // gameframe.addMapImages(GameAssets.getInstance().getMap(map).getTiles()[x][y].getGrafik(),x,y);
+                   gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getGameAssets().getMap(map).getTiles()[x][y].getGrafik()),x,y);
                 }
             }
         }
-        ArrayList<Door> doors=GameAssets.getInstance().doorsInMap(map);
+        ArrayList<Door> doors=GameManager.getInstance().getGameAssets().doorsInMap(map);
         for(Door door:doors){
-            //gameframe.addImage(door.getGraphic(),door.getX(),door.getY());
+            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()),door.getX(),door.getY());
         }
 
-        //gameframe.addImage(GameAssets.getInstance().getPlayer().getGraphic(),GameAssets.getInstance().getPlayer().getX(),GameAssets.getInstance().getPlayer().getY());
+        gameframe.addImage(GameManager.getInstance().getBI(GameManager.getInstance().getGameAssets().getPlayer().getGraphic()),GameManager.getInstance().getGameAssets().getPlayer().getX(),GameManager.getInstance().getGameAssets().getPlayer().getY());
         gameframe.clearImages();
         gameframe.repaint();
     }
