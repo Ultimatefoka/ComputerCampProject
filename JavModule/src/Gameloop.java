@@ -42,6 +42,7 @@ public class Gameloop implements Runnable {
                 int playerY = Data.getGameAssetsInstance().getPlayer().getY();
                 int tileX = Data.getGameAssetsInstance().getPlayer().getX() - 8 + x;
                 int tileY = Data.getGameAssetsInstance().getPlayer().getY() - 8 + y;
+                
                 if (tileX < 0 || tileY < 0 || tileX > 8 || tileY > 2) {
                     System.out.println(y);
                     gameframe.addImage(GameManager.getInstance().getBI("black"), x * 32, y * 32);
