@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class GameAssets {
 
-    private static GameAssets Asset=null;
     private ArrayList<Tile> tiles;
     private ArrayList<Door> doors;
     private ArrayList<Collectible> collectibles;
@@ -10,14 +9,6 @@ public class GameAssets {
     private Player player;
     private ArrayList<Map> maps;
 
-    public static GameAssets getInstance() {
-        if (Asset==null) {
-            return Asset=new GameAssets();
-        }
-        else {
-            return Asset;
-        }
-    }
 
     public ArrayList<Door> getDoors() {
         return doors;

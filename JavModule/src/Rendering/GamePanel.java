@@ -45,6 +45,9 @@ class GamePanel extends JPanel {
 	public void addImage(BufferedImage img, int x, int y) {
 		images.add(new GameImage(img, x, y));
 	}
+	public void addMapImage(BufferedImage img, int x, int y) {
+		mapimages.add(new GameImage(img, x, y));
+	}
 
 	public void addText(GameText text) {
 		this.text.add(text);
