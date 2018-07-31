@@ -60,4 +60,6 @@ public class GameManager implements InputListener{
         }
         return doors;
     }
+
+
 }
