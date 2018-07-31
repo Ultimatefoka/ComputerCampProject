@@ -2,11 +2,15 @@ public class Map {
 
     private String name;
     private String[][] tiles;
+    private int sizeX;
+    private int sizeY;
 
-    public Map (String name, String[][] tiles) {
+    public Map (String name, String[][] tiles, int sizeX, int sizeY) {
 
         this.name = name;
         this.tiles = tiles;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
 
     }
 
@@ -18,6 +22,14 @@ public class Map {
         this.tiles = tiles;
     }
 
+    public void setSizeX(int sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public void setSizeY(int sizeY) {
+        this.sizeY = sizeY;
+    }
+
     public String getName() {
         return name;
     }
@@ -25,4 +37,13 @@ public class Map {
     public String[][] getTiles() {
         return tiles;
     }
+
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
 }

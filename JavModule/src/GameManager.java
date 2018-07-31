@@ -60,14 +60,15 @@ public class GameManager implements InputListener{
         }
     }
     public BufferedImage getBI(String graphic){
-        if(graphic.equals("wall")){
-            return wall;
-        }else if(graphic.equals("stone")){
-            return stone;
-        }else if(graphic.equals("grass")){
-            return grass;
-        }else{
-            return black;
+        switch (graphic) {
+            case "wall":
+                return wall;
+            case "stone":
+                return stone;
+            case "grass":
+                return grass;
+            default:
+                return black;
         }
     }
 
@@ -83,27 +84,30 @@ public class GameManager implements InputListener{
 
     public void createMap(String name) {
 
-        currentMap = new Tile[32][32];
-
         for ( int j = 0; j < Data.getGameAssetsInstance().getMaps().size(); j++ ) {
 
-            if (Data.getGameAssetsInstance().getMaps().get(j).getName() == name) {
+            if (Data.getGameAssetsInstance().getMaps().get(j).getName().equals(name) ) {
 
-                for (int i = 0; i < 32; i++) {
+                int sizeX = Data.getGameAssetsInstance().getMaps().get(j).getSizeX();
+                int sizeY = Data.getGameAssetsInstance().getMaps().get(j).getSizeY();
 
-                    for (int n = 0; n < 32; n++) {
+                currentMap = new Tile[sizeX][sizeY];
+
+                for (int i = 0; i < sizeX; i++) {
+
+                    for (int n = 0; n < sizeY; n++) {
 
                         for(int m = 0; m < Data.getGameAssetsInstance().getTiles().size(); m++) {
 
-                            if (Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n] == Data.getGameAssetsInstance().getTiles().get(m).getName()) {
+                            if (Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n].equals(Data.getGameAssetsInstance().getTiles().get(m).getName() ) ) {
 
                                 currentMap[i][n] = Data.getGameAssetsInstance().getTiles().get(m);
+
                             }
                         }
                     }
                 }
             }
         }
-
     }
 }
