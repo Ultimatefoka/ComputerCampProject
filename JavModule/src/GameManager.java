@@ -9,7 +9,6 @@ public class GameManager implements InputListener{
     private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
     private static GameManager Manager=null;
-    private GameAssets gameAssets=new GameAssets();
     public GameManager() throws IOException {
     }
 
@@ -27,10 +26,6 @@ public class GameManager implements InputListener{
         events.add(event);
     }
 
-    public GameAssets getGameAssets() {
-        return gameAssets;
-    }
-
 
     public void update(){
 
@@ -46,4 +41,25 @@ public class GameManager implements InputListener{
             return black;
         }
     }
+
+    /*public Map getMap(String name){
+        for(Map map : maps) {
+            if (name.equals(map.getName())){
+                return map;
+            }
+        }
+        return null;
+    }*/
+
+    public ArrayList<Door> doorsInMap(String name){
+        ArrayList<Door> doors=null;
+        for(Door door:Data.getGameAssetsInstance().getDoors()){
+            if(name.equals(door.getMap())){
+                doors.add(door);
+            }
+        }
+        return doors;
+    }
+
+
 }

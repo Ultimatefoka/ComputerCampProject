@@ -1,9 +1,9 @@
 public class Map {
 
     private String name;
-    private Tile[][] tiles;
+    private String[][] tiles;
 
-    public Map (String name, Tile[][] tiles) {
+    public Map (String name, String[][] tiles) {
 
         this.name = name;
         this.tiles = tiles;
@@ -14,7 +14,7 @@ public class Map {
         this.name = name;
     }
 
-    public void setTiles(Tile[][] tiles) {
+    public void setTiles(String[][] tiles) {
         this.tiles = tiles;
     }
 
@@ -22,7 +22,7 @@ public class Map {
         return name;
     }
 
-    public Tile[][] getTiles() {
+    public String[][] getTiles() {
         return tiles;
     }
 }
