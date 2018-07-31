@@ -75,4 +75,14 @@ public class GameAssets {
         }
         return null;
     }
+
+    public ArrayList<Door> doorsInMap(String name){
+        ArrayList<Door> doors=null;
+        for(Door door:this.doors){
+            if(name.equals(door.getMap())){
+                doors.add(door);
+            }
+        }
+        return doors;
+    }
 }

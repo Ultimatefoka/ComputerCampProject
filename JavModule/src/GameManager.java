@@ -1,8 +1,19 @@
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameManager implements InputListener{
+    private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
+    private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/grass.png" ));
+    private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
+    private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
     private static GameManager Manager=null;
-    public static GameManager getInstance() {
+
+    public GameManager() throws IOException {
+    }
+
+    public static GameManager getInstance() throws IOException {
         if (Manager==null) {
             return Manager=new GameManager();
         }
@@ -17,5 +28,16 @@ public class GameManager implements InputListener{
     }
     public void update(){
 
+    }
+    public BufferedImage getBI(String graphic){
+        if(graphic.equals("wall")){
+            return wall;
+        }else if(graphic.equals("stone")){
+            return stone;
+        }else if(graphic.equals("grass")){
+            return grass;
+        }else{
+            return black;
+        }
     }
 }
