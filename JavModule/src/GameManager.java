@@ -79,8 +79,13 @@ public class GameManager implements InputListener{
 
                 for (int n = 0; n < 32; n++) {
 
-                    //if(Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n].getName);
+                    for(int m = 0; m < Data.getGameAssetsInstance().getTiles().size(); m++) {
 
+                        if (Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n] == Data.getGameAssetsInstance().getTiles().get(m).getName()) {
+
+                            maps.get(j)[i][n] = Data.getGameAssetsInstance().getTiles().get(m);
+                        }
+                    }
                 }
             }
         }
