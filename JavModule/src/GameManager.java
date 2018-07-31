@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class GameManager implements InputListener{
 
-    private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
-    private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/grass.png" ));
+    private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/grass.png" ));
+    private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
     private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
     private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
@@ -67,13 +67,15 @@ public class GameManager implements InputListener{
                 return stone;
             case "grass":
                 return grass;
+            case "player":
+                return player;
             default:
                 return black;
         }
     }
 
     public ArrayList<Door> doorsInMap(String name){
-        ArrayList<Door> doors=null;
+        ArrayList<Door> doors= new ArrayList<>();
         for(Door door:Data.getGameAssetsInstance().getDoors()){
             if(name.equals(door.getMap())){
                 doors.add(door);
@@ -91,11 +93,11 @@ public class GameManager implements InputListener{
                 int sizeX = Data.getGameAssetsInstance().getMaps().get(j).getSizeX();
                 int sizeY = Data.getGameAssetsInstance().getMaps().get(j).getSizeY();
 
-                currentMap = new Tile[sizeX][sizeY];
+                currentMap = new Tile[sizeY][sizeX];
 
-                for (int i = 0; i < sizeX; i++) {
+                for (int i = 0; i < sizeY; i++) {
 
-                    for (int n = 0; n < sizeY; n++) {
+                    for (int n = 0; n < sizeX; n++) {
 
                         for(int m = 0; m < Data.getGameAssetsInstance().getTiles().size(); m++) {
 
