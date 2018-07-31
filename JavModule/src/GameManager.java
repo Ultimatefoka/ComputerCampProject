@@ -9,6 +9,7 @@ public class GameManager implements InputListener{
     private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
     private static GameManager Manager=null;
+    private Tile[][] map;
 
     public GameManager() throws IOException {
     }
@@ -29,6 +30,7 @@ public class GameManager implements InputListener{
     public void update(){
 
     }
+
     public BufferedImage getBI(String graphic){
         if(graphic.equals("wall")){
             return wall;
@@ -39,5 +41,11 @@ public class GameManager implements InputListener{
         }else{
             return black;
         }
+    }
+
+    public void createMap() {
+
+
+
     }
 }
