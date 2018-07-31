@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 public class GameManager implements InputListener{
 
     private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
@@ -13,7 +14,10 @@ public class GameManager implements InputListener{
     private static GameManager Manager=null;
     private Tile[][] currentMap;
 
+    public ArrayList<InputManager.Event> events;
+
     public GameManager() throws IOException {
+        events = new ArrayList<InputManager.Event>();
     }
 
     public static GameManager getInstance() throws IOException {
@@ -24,15 +28,36 @@ public class GameManager implements InputListener{
             return Manager;
         }
     }
-    public ArrayList<InputManager.Event> events;
     @Override
     public void onPlayerMove(InputManager.Event event){
         events.add(event);
     }
 
+    public Tile[][] getCurrentMap() {
+        return currentMap;
+    }
+
 
     public void update(){
-
+        for (int i = 0; i < events.size(); i++) {
+            InputManager.Event event = events.remove(i);
+            switch (event) {
+                case MOVE_DOWN:
+                    Data.getGameAssetsInstance().getPlayer().MoveDown();
+                    break;
+                case MOVE_UP:
+                    Data.getGameAssetsInstance().getPlayer().MoveUp();
+                    break;
+                case MOVE_LEFT:
+                    Data.getGameAssetsInstance().getPlayer().MoveLeft();
+                    break;
+                case MOVE_RIGHT:
+                    Data.getGameAssetsInstance().getPlayer().MoveRight();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     public BufferedImage getBI(String graphic){
         if(graphic.equals("wall")){
@@ -45,15 +70,6 @@ public class GameManager implements InputListener{
             return black;
         }
     }
-
-    /*public Map getMap(String name){
-        for(Map map : Data.getGameAssetsInstance().maps) {
-            if (name.equals(map.getName())){
-                return map;
-            }
-        }
-        return null;
-    }*/
 
     public ArrayList<Door> doorsInMap(String name){
         ArrayList<Door> doors=null;

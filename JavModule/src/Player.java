@@ -45,4 +45,17 @@ public class Player {
     public void setMapName(String mapName) {
         this.mapName = mapName;
     }
+
+    public void MoveUp(){
+        y+=1;
+    }
+    public void MoveRight(){
+        x+=1;
+    }
+    public void MoveLeft(){
+        x-=1;
+    }
+    public void MoveDown(){
+        y-=1;
+    }
 }
