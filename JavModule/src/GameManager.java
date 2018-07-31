@@ -35,14 +35,15 @@ public class GameManager implements InputListener{
 
     }
     public BufferedImage getBI(String graphic){
-        if(graphic.equals("wall")){
-            return wall;
-        }else if(graphic.equals("stone")){
-            return stone;
-        }else if(graphic.equals("grass")){
-            return grass;
-        }else{
-            return black;
+        switch (graphic) {
+            case "wall":
+                return wall;
+            case "stone":
+                return stone;
+            case "grass":
+                return grass;
+            default:
+                return black;
         }
     }
 
