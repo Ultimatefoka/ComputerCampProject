@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavModule/JavModule.iml" filepath="$PROJECT_DIR$/JavModule/JavModule.iml" />
-      <module fileurl="file://$USER_HOME$/Downloads/gson-master/gson-master/gson/gson.iml" filepath="$USER_HOME$/Downloads/gson-master/gson-master/gson/gson.iml" />
     </modules>
   </component>
 </project>
