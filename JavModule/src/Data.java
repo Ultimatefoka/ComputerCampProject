@@ -1,4 +1,5 @@
 import java.io.File;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -12,7 +13,7 @@ public class Data {
 
     public static Data getDataIntance() {
 
-        if(dataIntance == null) {
+        if (dataIntance == null) {
 
             dataIntance = new Data();
         }
@@ -22,16 +23,16 @@ public class Data {
 
     public static GameAssets getGameAssetsInstance() {
 
-        if(gameAssetsInstance == null) {
+        if (gameAssetsInstance == null) {
 
             File dataFile = new File("");
-            Gson gson = new  Gson();
+            Gson gson = new Gson();
             JsonReader reader;
 
             try {
 
                 reader = new JsonReader(new FileReader(dataFile));
-            } catch(FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
 
                 e.printStackTrace();
                 return null;

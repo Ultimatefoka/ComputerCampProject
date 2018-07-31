@@ -14,7 +14,7 @@ public class Door extends Item {
 
     }
 
-    public void setTargetX (int targetX) {
+    public void setTargetX(int targetX) {
         this.targetX = targetX;
     }
 
@@ -26,7 +26,7 @@ public class Door extends Item {
         this.targetMap = targetMap;
     }
 
-    public void setMap (String map) {
+    public void setMap(String map) {
         this.map = map;
     }
 
@@ -42,7 +42,7 @@ public class Door extends Item {
         return targetMap;
     }
 
-    public String getMap () {
+    public String getMap() {
         return map;
     }
 }
