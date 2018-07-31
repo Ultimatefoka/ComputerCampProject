@@ -11,7 +11,7 @@ public class GameManager implements InputListener{
     private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
     private static GameManager Manager=null;
-    private ArrayList<Tile[][]>  maps;
+    private Tile[][] currentMap;
 
     public GameManager() throws IOException {
     }
@@ -65,25 +65,24 @@ public class GameManager implements InputListener{
         return doors;
     }
 
-    public void createMap() {
+    public void createMap(String name) {
 
-        for ( Map map: Data.getGameAssetsInstance().getMaps() ) {
+        currentMap = new Tile[32][32];
 
-            maps.add(new Tile[32][32]);
+        for ( int j = 0; j < Data.getGameAssetsInstance().getMaps().size(); j++ ) {
 
-        }
+            if (Data.getGameAssetsInstance().getMaps().get(j).getName() == name) {
 
-        for ( int j = 0; j < maps.size(); j++ ) {
+                for (int i = 0; i < 32; i++) {
 
-            for (int i = 0; i < 32; i++) {
+                    for (int n = 0; n < 32; n++) {
 
-                for (int n = 0; n < 32; n++) {
+                        for(int m = 0; m < Data.getGameAssetsInstance().getTiles().size(); m++) {
 
-                    for(int m = 0; m < Data.getGameAssetsInstance().getTiles().size(); m++) {
+                            if (Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n] == Data.getGameAssetsInstance().getTiles().get(m).getName()) {
 
-                        if (Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n] == Data.getGameAssetsInstance().getTiles().get(m).getName()) {
-
-                            maps.get(j)[i][n] = Data.getGameAssetsInstance().getTiles().get(m);
+                                currentMap[i][n] = Data.getGameAssetsInstance().getTiles().get(m);
+                            }
                         }
                     }
                 }
