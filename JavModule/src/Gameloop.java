@@ -35,7 +35,7 @@ public class Gameloop implements Runnable{
                 if(Data.getGameAssetsInstance().getPlayer().getX()-8-x<0||Data.getGameAssetsInstance().getPlayer().getY()-8-y<0){
                     gameframe.addImage(GameManager.getInstance().getBI("black"),x*32,y*32);
                 }else{
-                   gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getMap(map).getTiles()[Data.getGameAssetsInstance().getPlayer().getX()-8-x][Data.getGameAssetsInstance().getPlayer().getY()-8-y].getGrafik()),x*32,y*32);
+                   gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[Data.getGameAssetsInstance().getPlayer().getX()-8-x][Data.getGameAssetsInstance().getPlayer().getY()-8-y].getGraphic()),x*32,y*32);
                 }
             }
         }

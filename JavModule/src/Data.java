@@ -37,6 +37,7 @@ public class Data {
                 return null;
             }
 
+
             gameAssetsInstance = gson.fromJson(reader, GameAssets.class);
 
         }
