@@ -24,7 +24,7 @@ public class Data {
 
         if(gameAssetsInstance == null) {
 
-            File dataFile = new File("/assets/data.json");
+            File dataFile = new File("/assets/data");
             Gson gson = new  Gson();
             JsonReader reader;
 
@@ -37,7 +37,7 @@ public class Data {
                 return null;
             }
 
-            
+
             gameAssetsInstance = gson.fromJson(reader, GameAssets.class);
 
         }
