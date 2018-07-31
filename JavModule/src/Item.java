@@ -5,8 +5,6 @@ public abstract class Item {
     private int x;
     private int y;
 
-    public Item () {}
-
     public Item ( String graphic, String name, int x, int y){
 
         this.graphic = graphic;
