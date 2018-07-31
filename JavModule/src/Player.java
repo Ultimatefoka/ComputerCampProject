@@ -1,12 +1,14 @@
 public class Player {
 
     private String graphic;
+    private String mapName;
     private int x;
     private int y;
 
-    public Player(String graphic, int x, int y) {
+    public Player(String graphic,String mapName, int x, int y) {
 
         this.graphic = graphic;
+        this.mapName = mapName;
         this.x = x;
         this.y = y;
 
