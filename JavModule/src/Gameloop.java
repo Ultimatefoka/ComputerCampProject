@@ -16,7 +16,7 @@ public class Gameloop implements Runnable{
         while(running){
             try {
                 GameManager.getInstance().update();
-                render("map1");
+                render(Data.getGameAssetsInstance().getPlayer().getMapName());
             } catch (IOException e) {
                 e.printStackTrace();
             }

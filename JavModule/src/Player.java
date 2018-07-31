@@ -37,4 +37,12 @@ public class Player {
     public int getY() {
         return y;
     }
+
+    public String getMapName() {
+        return mapName;
+    }
+
+    public void setMapName(String mapName) {
+        this.mapName = mapName;
+    }
 }
