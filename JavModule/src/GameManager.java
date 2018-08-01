@@ -12,6 +12,9 @@ public class GameManager implements InputListener{
 
     private BufferedImage boden_grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png" ));
     private BufferedImage boden_erde=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde.png" ));
+    private BufferedImage boden_erde_grasskanteru=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteru.png" ));
+    private BufferedImage boden_erde_grasseckeru=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasseckeru.png" ));
+    private BufferedImage boden_erde_grasskanteu=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteu.png" ));
     private BufferedImage boden_grauekachel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grauekachel.png" ));
     private BufferedImage wand_graueziegel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png" ));
     private BufferedImage wand_stein=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_stein.png" ));
@@ -83,6 +86,12 @@ public class GameManager implements InputListener{
                 return boden_grauekachel;
             case "boden_grass":
                 return boden_grass;
+            case "boden_erde_grasskanteru":
+                return boden_erde_grasskanteru;
+            case "boden_erde_grasskanteu":
+                return boden_erde_grasskanteu;
+            case "boden_erde_grasseckeru":
+                return boden_erde_grasseckeru;
             case "boden_erde":
                 return boden_erde;
             case "player":
