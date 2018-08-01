@@ -11,12 +11,17 @@ import java.util.ArrayList;
 
 public class GameManager implements InputListener{
 
-    private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/grass.png" ));
-    private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
-    private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
+    private BufferedImage boden_grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png" ));
+    private BufferedImage boden_erde=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde.png" ));
+    private BufferedImage boden_grauekachel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grauekachel.png" ));
+    private BufferedImage wand_graueziegel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png" ));
+    private BufferedImage wand_stein=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_stein.png" ));
     private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
-    private BufferedImage door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door.png" ));
+    private BufferedImage door_door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_door.png" ));
+    private BufferedImage door_leiter=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_leiter.png" ));
+    private BufferedImage door_stein=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_stein.png" ));
+    private BufferedImage door_dungeon1=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png" ));
     private static GameManager Manager=null;
     private Tile[][] currentMap;
 
@@ -40,7 +45,6 @@ public class GameManager implements InputListener{
     }
     @Override
     public void onPlayerMove(InputManager.Event event){
-        System.out.println(event);
         events.add(event);
     }
 
@@ -101,16 +105,26 @@ public class GameManager implements InputListener{
 
     public BufferedImage getBI(String graphic){
         switch (graphic) {
-            case "wall":
-                return wall;
-            case "stone":
-                return stone;
-            case "grass":
-                return grass;
+            case "wand_graueziegel":
+                return wand_graueziegel;
+            case "wand_stein":
+                return wand_stein;
+            case "boden_grauekachel":
+                return boden_grauekachel;
+            case "boden_grass":
+                return boden_grass;
+            case "boden_erde":
+                return boden_erde;
             case "player":
                 return player;
-            case "door":
-                return door;
+            case "door_door":
+                return door_door;
+            case "door_leiter":
+                return door_leiter;
+            case "door_stein":
+                return door_stein;
+            case "door_dungeon1":
+                return door_dungeon1;
             default:
                 return black;
         }

@@ -1,9 +1,12 @@
 {
-  "tiles": [ { "graphic":"grass", "name":"grass", "traversable":true }, { "graphic":"stone", "name":"stone", "traversable":true },
-    { "graphic":"wall", "name":"wall", "traversable":false } ],
+  "tiles": [ { "graphic":"boden_grass", "name":"boden_grass", "traversable":true },{ "graphic":"boden_erde", "name":"boden_erde", "traversable":true },
+    { "graphic":"boden_grauekachel", "name":"boden_grauekachel", "traversable":true }, { "graphic":"wand_graueziegel", "name":"wand_graueziegel", "traversable":false },
+    { "graphic":"wand_stein", "name":"wand_stein", "traversable":false } ],
 
-  "doors": [ { "graphic":"door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
-    { "graphic":"door", "name":"door2", "x":"2", "y":"8", "targetX":"2", "targetY":"7", "targetMap":"Map2", "map":"map1" } ],
+  "doors": [ { "graphic":"door_door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
+    { "graphic":"door_dungeon1", "name":"door2", "x":"3", "y":"9", "targetX":"4", "targetY":"6", "targetMap":"Map2", "map":"map1" },
+    { "graphic":"door_stein", "name":"door3", "x":"5", "y":"0", "targetX":"4", "targetY":"6", "targetMap":"Map2", "map":"map1" },
+    { "graphic":"door_leiter", "name":"door4", "x":"2", "y":"3", "targetX":"2", "targetY":"7", "targetMap":"Map2", "map":"map1" } ],
 
   "collectibles": [ { "graphic":"placeHolder.jpg", "name":"healing1", "x":"7", "y":"3", "item":"healing1", "map":"map1" } ],
 
@@ -13,23 +16,30 @@
   "NeutralNPC": [ { "graphic":"placeHolder.jpg", "name":"solaire", "x":"7", "y":"6", "map":"map1" },
     { "graphic":"placeHolder.jpg", "name":"artorias", "x":"6", "y":"3", "map":"map2" } ],
 
-  "maps": [ { "name":"map1", "sizeX":"9", "sizeY":"3", "tiles": [
-    [ "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass" ],
-    [ "stone", "stone", "stone", "stone", "stone", "stone", "grass", "grass", "grass" ],
-    [ "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall" ] ] },
+  "maps": [ { "name":"map1", "sizeX":"9", "sizeY":"10", "tiles": [
+    ["wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein"],
+    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde"],
+    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde"],
+    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_erde", "boden_erde", "boden_erde", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel"],
+    ["wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel"] ] },
 
-    { "name":"map2", "sizeX":"9", "sizeY":"3", "tiles": [
-    ["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
-    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-    ["stone", "stone", "stone", "stone", "stone", "stone", "grass", "grass", "grass"],
-    ["stone", "stone", "stone", "stone", "stone", "stone", "grass", "grass", "grass"],
-    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"] ] }
+    { "name":"map2", "sizeX":"9", "sizeY":"10", "tiles": [
+    ["wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"] ] }
   ],
 
-  "player": { "graphic":"player", "x":"8", "y":"4", "mapName":"map2" }
+  "player": { "graphic":"player", "x":"7", "y":"4", "mapName":"map1" }
 }
