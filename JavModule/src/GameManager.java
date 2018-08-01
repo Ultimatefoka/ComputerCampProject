@@ -10,12 +10,13 @@ import java.util.ArrayList;
 
 public class GameManager implements InputListener{
 
-    private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png" ));
-    private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_graueKachel.png" ));
-    private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png" ));
+    private BufferedImage boden_grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png" ));
+    private BufferedImage boden_erde=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde.png" ));
+    private BufferedImage boden_grauekachel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grauekachel.png" ));
+    private BufferedImage wand_graueziegel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png" ));
     private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
-    private BufferedImage door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_door.png" ));
+    private BufferedImage door_door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_door.png" ));
     private static GameManager Manager=null;
     private Tile[][] currentMap;
 
@@ -70,16 +71,18 @@ public class GameManager implements InputListener{
     }
     public BufferedImage getBI(String graphic){
         switch (graphic) {
-            case "wall":
-                return wall;
-            case "stone":
-                return stone;
-            case "grass":
-                return grass;
+            case "wand_graueziegel":
+                return wand_graueziegel;
+            case "boden_grauekachel":
+                return boden_grauekachel;
+            case "boden_grass":
+                return boden_grass;
+            case "boden_erde":
+                return boden_erde;
             case "player":
                 return player;
-            case "door":
-                return door;
+            case "door_door":
+                return door_door;
             default:
                 return black;
         }

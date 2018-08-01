@@ -10,7 +10,7 @@ public class Gameloop implements Runnable {
     private GameFrame gameframe;
 
     public Gameloop() throws IOException {
-        gameframe = new GameFrame("CoolesSpiel", 64 * 12, (64 * 8) + 20);
+        gameframe = new GameFrame("CoolesSpiel", 32 * 16, (32 * 9) + 35);
         GameManager.getInstance().initInputManager(gameframe);
     }
 
