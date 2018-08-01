@@ -161,6 +161,7 @@ public class GameManager implements InputListener{
         return doors;
     }
 
+    
     public void createMap(String name) {
 
         for ( int j = 0; j < Data.getGameAssetsInstance().getMaps().size(); j++ ) {
