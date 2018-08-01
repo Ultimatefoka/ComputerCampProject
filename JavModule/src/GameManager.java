@@ -59,18 +59,23 @@ public class GameManager implements InputListener{
     public void update(){
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
+            Player currentPlayer = new Player("player",Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
             switch (event) {
                 case MOVE_DOWN:
-                    Data.getGameAssetsInstance().getPlayer().MoveDown();
+                    currentPlayer.MoveDown();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_UP:
-                    Data.getGameAssetsInstance().getPlayer().MoveUp();
+                    currentPlayer.MoveUp();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_LEFT:
-                    Data.getGameAssetsInstance().getPlayer().MoveLeft();
+                    currentPlayer.MoveLeft();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_RIGHT:
-                    Data.getGameAssetsInstance().getPlayer().MoveRight();
+                    currentPlayer.MoveRight();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 default:
                     break;
@@ -78,7 +83,7 @@ public class GameManager implements InputListener{
         }
     }
 
-    private void checkPlayerObstacleCollision(InputManager.Event event, Player currentPlayer) {
+    private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) {
 
         if(!CollisionManager.getCollisionManagerInstance().collidesWithObstacle(currentPlayer, currentMap)) {
 
@@ -100,9 +105,6 @@ public class GameManager implements InputListener{
                     Data.getGameAssetsInstance().getPlayer().MoveRight();
                     break;
             }
-        } else {
-
-            
         }
     }
 
