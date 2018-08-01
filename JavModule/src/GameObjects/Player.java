@@ -1,23 +1,39 @@
 package GameObjects;
 
+import java.util.ArrayList;
+
 public class Player {
 
-    private String graphic;
+    private ArrayList<String> sprites;
     private String mapName;
     private int x;
     private int y;
+    private Facing facing;
 
-    public Player(String graphic,String mapName, int x, int y) {
+    public enum Facing {
 
-        this.graphic = graphic;
+        UP(0), RIGHT(1), LEFT(2), DOWN(3);
+
+        private int n;
+
+        Facing(int n) {
+
+            this.n = n;
+        }
+    }
+
+    public Player(ArrayList<String> sprites,String mapName, int x, int y) {
+
+        this.sprites = sprites;
         this.mapName = mapName;
         this.x = x;
         this.y = y;
+        facing = Facing.DOWN;
 
     }
 
-    public void setGraphic(String graphic) {
-        this.graphic = graphic;
+    public ArrayList<String> getSprites() {
+        return sprites;
     }
 
     public void setX(int x) {
@@ -28,8 +44,8 @@ public class Player {
         this.y = y;
     }
 
-    public String getGraphic() {
-        return graphic;
+    public void setSprites(ArrayList<String> sprites) {
+        this.sprites = sprites;
     }
 
     public int getX() {
@@ -49,15 +65,32 @@ public class Player {
     }
 
     public void MoveUp(){
+        facing = Facing.UP;
         y-=1;
     }
     public void MoveRight(){
+        facing = Facing.RIGHT;
         x+=1;
     }
     public void MoveLeft(){
+        facing = Facing.LEFT;
         x-=1;
     }
     public void MoveDown(){
+        facing = Facing.DOWN;
         y+=1;
+    }
+
+    public Facing getFacing() {
+        return facing;
+    }
+
+    public void setFacing(Facing facing) {
+        this.facing = facing;
+    }
+
+    public String getGraphic() {
+
+        return sprites.get(facing.n);
     }
 }

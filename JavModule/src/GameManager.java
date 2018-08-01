@@ -59,7 +59,7 @@ public class GameManager implements InputListener{
     public void update(){
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
-            Player currentPlayer = new Player("player",Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
+            Player currentPlayer = new Player(Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
 
             switch (event) {
                 case MOVE_DOWN:
@@ -161,7 +161,7 @@ public class GameManager implements InputListener{
         return doors;
     }
 
-    
+
     public void createMap(String name) {
 
         for ( int j = 0; j < Data.getGameAssetsInstance().getMaps().size(); j++ ) {
