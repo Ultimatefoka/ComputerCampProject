@@ -1,3 +1,5 @@
+package GameObjects;
+
 public class Collectible {
 
     private String name;

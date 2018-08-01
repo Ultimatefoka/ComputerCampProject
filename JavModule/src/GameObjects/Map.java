@@ -1,3 +1,5 @@
+package GameObjects;
+
 public class Map {
 
     private String name;

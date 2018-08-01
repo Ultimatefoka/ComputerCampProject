@@ -1,3 +1,7 @@
+package GameObjects;
+
+import GameObjects.NPC;
+
 public class HostileNPC extends NPC {
 
     private int health;
@@ -8,6 +12,6 @@ public class HostileNPC extends NPC {
         this.health = health;
 
     }
-    
+
 
 }

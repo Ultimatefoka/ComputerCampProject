@@ -1,3 +1,6 @@
+import GameObjects.Door;
+import GameObjects.Tile;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;

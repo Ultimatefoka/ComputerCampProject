@@ -1,3 +1,5 @@
+package GameObjects;
+
 public class Player {
 
     private String graphic;

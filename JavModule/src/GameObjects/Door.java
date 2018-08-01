@@ -1,3 +1,7 @@
+package GameObjects;
+
+import GameObjects.Item;
+
 public class Door extends Item {
 
     private int targetX;

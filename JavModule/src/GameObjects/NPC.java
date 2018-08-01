@@ -1,16 +1,20 @@
-public abstract class Item {
+package GameObjects;
+
+public abstract class NPC {
 
     private String graphic;
     private String name;
     private int x;
     private int y;
+    private String map;
 
-    public Item(String graphic, String name, int x, int y) {
+    public NPC (String graphic, String name, int x, int y, String map) {
 
         this.graphic = graphic;
         this.name = name;
         this.x = x;
         this.y = y;
+        this.map = map;
 
     }
 
@@ -30,6 +34,10 @@ public abstract class Item {
         this.y = y;
     }
 
+    public void setMap(String map) {
+        this.map = map;
+    }
+
     public String getName() {
         return name;
     }
@@ -44,6 +52,22 @@ public abstract class Item {
 
     public int getY() {
         return y;
+    }
+
+    public void MoveUp(){
+        y+=1;
+    }
+
+    public void MoveRight(){
+        x+=1;
+    }
+
+    public void MoveLeft(){
+        x-=1;
+    }
+
+    public void MoveDown(){
+        y-=1;
     }
 
 }

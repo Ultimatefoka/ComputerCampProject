@@ -1,3 +1,5 @@
+import GameObjects.*;
+
 import java.util.ArrayList;
 
 public class GameAssets {

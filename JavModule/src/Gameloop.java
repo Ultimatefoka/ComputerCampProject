@@ -1,3 +1,4 @@
+import GameObjects.Door;
 import Rendering.GameFrame;
 
 import java.io.IOException;

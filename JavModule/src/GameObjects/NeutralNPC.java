@@ -1,3 +1,5 @@
+package GameObjects;
+
 public class NeutralNPC extends NPC {
 
     public NeutralNPC(String graphic, String name, int x, int y, String map) {
@@ -5,6 +7,5 @@ public class NeutralNPC extends NPC {
         super(graphic, name, x, y, map);
 
     }
-
 
 }
