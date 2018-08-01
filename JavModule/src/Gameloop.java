@@ -8,9 +8,10 @@ public class Gameloop implements Runnable {
 
     private boolean running = true;
     private GameFrame gameframe;
+    private int tileSize=32;
 
     public Gameloop() throws IOException {
-        gameframe = new GameFrame("CoolesSpiel", 32 * 16, (32 * 9) + 35);
+        gameframe = new GameFrame("CoolesSpiel", tileSize * 16, (tileSize * 9) + 35);
         GameManager.getInstance().initInputManager(gameframe);
     }
 
@@ -47,18 +48,18 @@ public class Gameloop implements Runnable {
                 int sizeX = GameManager.getInstance().getCurrentMap()[1].length-1;
                 int sizeY = GameManager.getInstance().getCurrentMap().length-1;
                 if (gTileInMapX < 0 || gTileInMapY < 0 || gTileInMapX > sizeX || gTileInMapY > sizeY) {
-                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPosOnFramX * 32, locPosOnFramY * 32);
+                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPosOnFramX * tileSize, locPosOnFramY * tileSize);
                 } else {
-                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * 32, locPosOnFramY * 32);
+                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * tileSize, locPosOnFramY * tileSize);
                     for (Door door : doors) {
                         if(door.getX()==gTileInMapX && door.getY()==gTileInMapY) {
-                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPosOnFramX * 32, locPosOnFramY * 32);
+                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPosOnFramX * tileSize, locPosOnFramY * tileSize);
                         }
                     }
                 }
             }
         }
-        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * 32, 4 * 32);
+        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * tileSize, 4 * tileSize);
         gameframe.repaint();
     }
 

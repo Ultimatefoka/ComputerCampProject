@@ -46,6 +46,8 @@ public class GameManager implements InputListener{
     private BufferedImage wand_stein = ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_stein.png"));
     private BufferedImage player_vorne = ImageIO.read(GameManager.class.getResourceAsStream("/Images/player_vorne.png"));
     private BufferedImage player_hinten = ImageIO.read(GameManager.class.getResourceAsStream("/Images/player_hinten.png"));
+    private BufferedImage player_links = ImageIO.read(GameManager.class.getResourceAsStream("/Images/player_links.png"));
+    private BufferedImage player_rechts = ImageIO.read(GameManager.class.getResourceAsStream("/Images/player_rechts.png"));
     private BufferedImage black = ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png"));
     private BufferedImage door_door = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_door.png"));
     private BufferedImage door_leiter = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_leiter.png"));
@@ -216,6 +218,10 @@ public class GameManager implements InputListener{
                 return player_vorne;
             case "player_hinten":
                 return player_hinten;
+            case "player_links":
+                return player_links;
+            case "player_rechts":
+                return player_rechts;
             case "door_door":
                 return door_door;
             case "door_leiter":
