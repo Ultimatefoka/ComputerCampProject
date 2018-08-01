@@ -1,20 +1,18 @@
-public class NPC {
+public abstract class NPC {
 
     private String graphic;
     private String name;
     private int x;
     private int y;
     private String map;
-    private String behaviour;
 
-    public NPC ( String graphic, String name, int x, int y, String map, String behaviour) {
+    public NPC (String graphic, String name, int x, int y, String map) {
 
         this.graphic = graphic;
         this.name = name;
         this.x = x;
         this.y = y;
         this.map = map;
-        this.behaviour = behaviour;
 
     }
 
@@ -38,10 +36,6 @@ public class NPC {
         this.map = map;
     }
 
-    public void setBehaviour(String behaviour) {
-        this.behaviour = behaviour;
-    }
-
     public String getName() {
         return name;
     }
@@ -58,7 +52,20 @@ public class NPC {
         return y;
     }
 
-    public String getBehaviour() {
-        return behaviour;
+    public void MoveUp(){
+        y+=1;
     }
+
+    public void MoveRight(){
+        x+=1;
+    }
+
+    public void MoveLeft(){
+        x-=1;
+    }
+
+    public void MoveDown(){
+        y-=1;
+    }
+
 }
