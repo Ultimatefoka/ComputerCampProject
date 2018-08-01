@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class GameManager implements InputListener{
     private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
     private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
+    private BufferedImage door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door.png" ));
     private static GameManager Manager=null;
     private Tile[][] currentMap;
 
@@ -18,6 +20,10 @@ public class GameManager implements InputListener{
 
     public GameManager() throws IOException {
         events = new ArrayList<InputManager.Event>();
+    }
+    public void initInputManager(Frame frame) {
+        InputManager.getInstance().setFrame(frame);
+        InputManager.getInstance().setInputListener(this);
     }
 
     public static GameManager getInstance() throws IOException {
@@ -30,6 +36,7 @@ public class GameManager implements InputListener{
     }
     @Override
     public void onPlayerMove(InputManager.Event event){
+        System.out.println(event);
         events.add(event);
     }
 
@@ -69,6 +76,8 @@ public class GameManager implements InputListener{
                 return grass;
             case "player":
                 return player;
+            case "door":
+                return door;
             default:
                 return black;
         }

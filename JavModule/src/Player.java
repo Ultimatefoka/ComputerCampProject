@@ -47,7 +47,7 @@ public class Player {
     }
 
     public void MoveUp(){
-        y+=1;
+        y-=1;
     }
     public void MoveRight(){
         x+=1;
@@ -56,6 +56,6 @@ public class Player {
         x-=1;
     }
     public void MoveDown(){
-        y-=1;
+        y+=1;
     }
 }

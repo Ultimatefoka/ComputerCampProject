@@ -8,8 +8,9 @@ public class Gameloop implements Runnable {
     private boolean running = true;
     private GameFrame gameframe;
 
-    public Gameloop() {
+    public Gameloop() throws IOException {
         gameframe = new GameFrame("CoolesSpiel", 64 * 12, (64 * 8) + 20);
+        GameManager.getInstance().initInputManager(gameframe);
     }
 
     @Override
@@ -29,7 +30,6 @@ public class Gameloop implements Runnable {
                 Thread.sleep(40);
             } catch (Exception ex) {
            }
-           // running=false;
         }
     }
 
@@ -54,10 +54,6 @@ public class Gameloop implements Runnable {
                     }
                 }
             }
-        }
-
-        for (Door door : doors) {
-            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), door.getX() * 32, door.getY() * 32);
         }
         gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * 32, 4 * 32);
         gameframe.repaint();

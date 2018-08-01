@@ -2,8 +2,8 @@
   "tiles": [ { "graphic":"grass", "name":"grass", "traversable":true }, { "graphic":"stone", "name":"stone", "traversable":true },
     { "graphic":"wall", "name":"wall", "traversable":false } ],
 
-  "doors": [ { "graphic":"placeHolder.jpg", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
-    { "graphic":"placeHolder.jpg", "name":"door2", "x":"2", "y":"8", "targetX":"2", "targetY":"7", "targetMap":"Map2", "map":"map1" } ],
+  "doors": [ { "graphic":"door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
+    { "graphic":"door", "name":"door2", "x":"2", "y":"8", "targetX":"2", "targetY":"7", "targetMap":"Map2", "map":"map1" } ],
 
   "collectibles": [ { "graphic":"placeHolder.jpg", "name":"healing1", "x":"7", "y":"3", "item":"healing1", "map":"map1" } ],
 
