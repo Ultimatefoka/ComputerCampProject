@@ -3,7 +3,6 @@ import java.util.concurrent.TimeUnit;
 
 public class NeutralNPC extends NPC {
 
-    private boolean busy = false;
     private int distanceX;
     private int distanceY;
 
@@ -15,24 +14,36 @@ public class NeutralNPC extends NPC {
 
     }
 
-    public void createPathing() {
+    public void createPatrol() {
 
         this.addWaypoint(distanceX, distanceY);
         this.addWaypoint(-distanceX, -distanceY);
 
     }
 
-    public void move() {
+    public void walkPathing() {
 
+        while (!this.getTargets().isEmpty()) {
 
+            if (this.getX() != this.getX() + this.getTargets().get(0).getX()) {
+
+                this.setX(this.getX() + 1);
+
+            }
+            if (this.getY() != this.getY() + this.getTargets().get(0).getX()) {
+
+                this.setY(this.getY() + 1);
+            }
+
+        }
+
+        if (this.getTargets().isEmpty()) {
+
+            createPatrol();
+            walkPathing();
+            
+        }
 
     }
 
-    public void setBusy(boolean busy) {
-        this.busy = busy;
-    }
-
-    public boolean getBusy() {
-        return busy;
-    }
 }
