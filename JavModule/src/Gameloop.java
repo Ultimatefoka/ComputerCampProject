@@ -28,35 +28,36 @@ public class Gameloop implements Runnable {
 
                 Thread.sleep(40);
             } catch (Exception ex) {
-            }
-            running=false;
+           }
+           // running=false;
         }
     }
 
     public void render(String map) throws IOException {
         gameframe.clearMapImages();
         gameframe.clearImages();
-        for (int x = 0; x < 16; x++) {
-            for (int y = 0; y < 9; y++) {
+        ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
+        for (int mapX = 0; mapX < 16; mapX++) {
+            for (int mapY = 0; mapY < 9; mapY++) {
                 int playerX = Data.getGameAssetsInstance().getPlayer().getX();
                 int playerY = Data.getGameAssetsInstance().getPlayer().getY();
-                int tileX = Data.getGameAssetsInstance().getPlayer().getX() - 8 + x;
-                int tileY = Data.getGameAssetsInstance().getPlayer().getY() - 8 + y;
-                
+                int tileX = playerX-8+mapX;
+                int tileY = playerY-4+mapY;
                 if (tileX < 0 || tileY < 0 || tileX > 8 || tileY > 2) {
-                    System.out.println(y);
-                    gameframe.addImage(GameManager.getInstance().getBI("black"), x * 32, y * 32);
+                    gameframe.addImage(GameManager.getInstance().getBI("black"), mapX * 32, mapY * 32);
                 } else {
-                    System.out.println(y);
-                    System.out.println(GameManager.getInstance().getCurrentMap()[tileY][tileX].getGraphic());
-                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[tileY][tileX].getGraphic()), x * 32, y * 32);
+                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[tileY][tileX].getGraphic()), mapX * 32, mapY * 32);
+                    for (Door door : doors) {
+                        if(door.getX()==tileX&&door.getY()==tileY) {
+                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), tileX * 32, tileY * 32);
+                        }
+                    }
                 }
             }
         }
-        ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
+
         for (Door door : doors) {
             gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), door.getX() * 32, door.getY() * 32);
-            System.out.println(door.getX());
         }
         gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * 32, 4 * 32);
         gameframe.repaint();
