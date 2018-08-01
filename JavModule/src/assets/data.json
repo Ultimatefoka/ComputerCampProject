@@ -57,5 +57,5 @@
     ["void", "void", "void", "void", "void", "void", "void", "void", "void", "void", "void"]] }
   ],
 
-  "player": { "sprites":[ "player_vorne", "player_hinten", "player_rechts", "player_links" ], "x":"7", "y":"4", "mapName":"map1" }
+  "player": { "sprites":[ "player_hinten", "player_rechts", "player_links", "player_vorne" ], "x":"7", "y":"4", "mapName":"map1", "facing":"DOWN" }
 }
