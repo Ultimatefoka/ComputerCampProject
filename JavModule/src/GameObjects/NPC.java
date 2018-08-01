@@ -1,4 +1,5 @@
 package GameObjects;
+import java.util.ArrayList;
 
 public abstract class NPC {
 
@@ -7,6 +8,7 @@ public abstract class NPC {
     private int x;
     private int y;
     private String map;
+    private ArrayList<Waypoint> targets;
 
     public NPC (String graphic, String name, int x, int y, String map) {
 
@@ -16,6 +18,19 @@ public abstract class NPC {
         this.y = y;
         this.map = map;
 
+    }
+
+
+    public void addWaypoint(int x, int y) {
+        targets.add(new Waypoint(x,y));
+    }
+
+    public void removeWaypoint(int index) {
+        targets.remove(index);
+    }
+
+    public ArrayList<Waypoint> getTargets() {
+        return targets;
     }
 
     public void setGraphic(String graphic) {

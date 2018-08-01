@@ -1,4 +1,5 @@
 import GameObjects.Door;
+import GameObjects.Player;
 import GameObjects.Tile;
 
 import javax.imageio.ImageIO;
@@ -76,6 +77,35 @@ public class GameManager implements InputListener{
             }
         }
     }
+
+    private void checkPlayerObstacleCollision(InputManager.Event event, Player currentPlayer) {
+
+        if(!CollisionManager.getCollisionManagerInstance().collidesWithObstacle(currentPlayer, currentMap)) {
+
+            switch(event) {
+
+                case MOVE_DOWN:
+                    Data.getGameAssetsInstance().getPlayer().MoveDown();
+                    break;
+
+                case MOVE_UP:
+                    Data.getGameAssetsInstance().getPlayer().MoveUp();
+                    break;
+
+                case MOVE_LEFT:
+                    Data.getGameAssetsInstance().getPlayer().MoveLeft();
+                    break;
+
+                case MOVE_RIGHT:
+                    Data.getGameAssetsInstance().getPlayer().MoveRight();
+                    break;
+            }
+        } else {
+
+            
+        }
+    }
+
     public BufferedImage getBI(String graphic){
         switch (graphic) {
             case "wand_graueziegel":
