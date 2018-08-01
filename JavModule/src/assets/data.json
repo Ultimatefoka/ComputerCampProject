@@ -5,10 +5,10 @@
     { "graphic":"boden_erde_grasseckeru", "name":"boden_erde_grasseckeru", "traversable":true },
     { "graphic":"wand_stein", "name":"wand_stein", "traversable":false },{"graphic":"black", "name":"void", "traversable":false } ],
 
-  "doors": [ { "graphic":"door_door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
-    { "graphic":"door_dungeon1", "name":"door2", "x":"3", "y":"10", "targetX":"4", "targetY":"6", "targetMap":"Map2", "map":"map1" },
-    { "graphic":"door_stein", "name":"door3", "x":"5", "y":"1", "targetX":"4", "targetY":"6", "targetMap":"Map2", "map":"map1" },
-    { "graphic":"door_leiter", "name":"door4", "x":"2", "y":"3", "targetX":"2", "targetY":"7", "targetMap":"Map2", "map":"map1" } ],
+  "doors": [ { "graphic":"door_door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"map1", "map":"map2" },
+    { "graphic":"door_dungeon1", "name":"door2", "x":"3", "y":"10", "targetX":"4", "targetY":"6", "targetMap":"map2", "map":"map1" },
+    { "graphic":"door_stein", "name":"door3", "x":"5", "y":"1", "targetX":"4", "targetY":"6", "targetMap":"map2", "map":"map1" },
+    { "graphic":"door_leiter", "name":"door4", "x":"2", "y":"3", "targetX":"2", "targetY":"7", "targetMap":"map2", "map":"map1" } ],
 
   "collectibles": [ { "graphic":"placeHolder.jpg", "name":"healing1", "x":"7", "y":"3", "item":"healing1", "map":"map1" } ],
 
