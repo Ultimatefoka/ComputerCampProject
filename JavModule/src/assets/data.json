@@ -7,8 +7,11 @@
 
   "collectibles": [ { "graphic":"placeHolder.jpg", "name":"healing1", "x":"7", "y":"3", "item":"healing1", "map":"map1" } ],
 
-  "NPCs": [ { "graphic":"placeHolder.jpg", "name":"spider", "x":"1", "y":"5", "behavior":"walk1", "map":"map1" },
-    { "graphic":"placeHolder.jpg", "name":"giantGiant", "x":"9", "y":"1", "behavior":"walk2", "map":"map1" } ],
+  "HostileNPC": [ { "graphic":"placeHolder.jpg", "name":"spider", "x":"1", "y":"5", "health":"6", "map":"map1" },
+    { "graphic":"placeHolder.jpg", "name":"krakzilla", "x":"4", "y":"2", "health":"30", "map":"map2" } ],
+
+  "NeutralNPC": [ { "graphic":"placeHolder.jpg", "name":"solaire", "x":"7", "y":"6", "map":"map1" },
+    { "graphic":"placeHolder.jpg", "name":"artorias", "x":"6", "y":"3", "map":"map2" } ],
 
   "maps": [ { "name":"map1", "sizeX":"9", "sizeY":"3", "tiles": [
     [ "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass" ],
