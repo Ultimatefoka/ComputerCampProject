@@ -44,7 +44,9 @@ public class Gameloop implements Runnable {
                 int gPlayerY = Data.getGameAssetsInstance().getPlayer().getY();
                 int gTileInMapX = gPlayerX-8+locPosOnFramX;
                 int gTileInMapY = gPlayerY-4+locPosOnFramY;
-                if (gTileInMapX < 0 || gTileInMapY < 0 || gTileInMapX > 8 || gTileInMapY > 9) {
+                int sizeX = GameManager.getInstance().getCurrentMap()[1].length-1;
+                int sizeY = GameManager.getInstance().getCurrentMap().length-1;
+                if (gTileInMapX < 0 || gTileInMapY < 0 || gTileInMapX > sizeX || gTileInMapY > sizeY) {
                     gameframe.addImage(GameManager.getInstance().getBI("black"), locPosOnFramX * 32, locPosOnFramY * 32);
                 } else {
                     gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * 32, locPosOnFramY * 32);

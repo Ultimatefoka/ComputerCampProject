@@ -9,23 +9,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class GameManager implements InputListener{
+public class GameManager implements InputListener {
 
-    private BufferedImage boden_grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png" ));
-    private BufferedImage boden_erde=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde.png" ));
-    private BufferedImage boden_erde_grasskanteru=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteru.png" ));
-    private BufferedImage boden_erde_grasseckeru=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasseckeru.png" ));
-    private BufferedImage boden_erde_grasskanteu=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteu.png" ));
-    private BufferedImage boden_grauekachel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grauekachel.png" ));
-    private BufferedImage wand_graueziegel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png" ));
-    private BufferedImage wand_stein=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_stein.png" ));
-    private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
-    private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
-    private BufferedImage door_door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_door.png" ));
-    private BufferedImage door_leiter=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_leiter.png" ));
-    private BufferedImage door_stein=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_stein.png" ));
-    private BufferedImage door_dungeon1=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png" ));
-    private static GameManager Manager=null;
+    private BufferedImage boden_grass = ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png"));
+    private BufferedImage boden_erde = ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde.png"));
+    private BufferedImage boden_erde_grasskanteru = ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteru.png"));
+    private BufferedImage boden_erde_grasseckeru = ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasseckeru.png"));
+    private BufferedImage boden_erde_grasskanteu = ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteu.png"));
+    private BufferedImage boden_grauekachel = ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grauekachel.png"));
+    private BufferedImage wand_graueziegel = ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png"));
+    private BufferedImage wand_stein = ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_stein.png"));
+    private BufferedImage player = ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png"));
+    private BufferedImage black = ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png"));
+    private BufferedImage door_door = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_door.png"));
+    private BufferedImage door_leiter = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_leiter.png"));
+    private BufferedImage door_stein = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_stein.png"));
+    private BufferedImage door_dungeon1 = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png"));
+    private static GameManager Manager = null;
     private Tile[][] currentMap;
 
     public ArrayList<InputManager.Event> events;
@@ -33,21 +33,22 @@ public class GameManager implements InputListener{
     public GameManager() throws IOException {
         events = new ArrayList<InputManager.Event>();
     }
+
     public void initInputManager(Frame frame) {
         InputManager.getInstance().setFrame(frame);
         InputManager.getInstance().setInputListener(this);
     }
 
     public static GameManager getInstance() throws IOException {
-        if (Manager==null) {
-            return Manager=new GameManager();
-        }
-        else {
+        if (Manager == null) {
+            return Manager = new GameManager();
+        } else {
             return Manager;
         }
     }
+
     @Override
-    public void onPlayerMove(InputManager.Event event){
+    public void onPlayerMove(InputManager.Event event) {
         events.add(event);
     }
 
@@ -56,10 +57,10 @@ public class GameManager implements InputListener{
     }
 
 
-    public void update(){
+    public void update() {
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
-            Player currentPlayer = new Player("player",Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
+            Player currentPlayer = new Player("player", Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
             switch (event) {
                 case MOVE_DOWN:
                     currentPlayer.MoveDown();
@@ -85,9 +86,9 @@ public class GameManager implements InputListener{
 
     private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) {
 
-        if(!CollisionManager.getCollisionManagerInstance().collidesWithObstacle(currentPlayer, currentMap)) {
+        if (!CollisionManager.getCollisionManagerInstance().collidesWithObstacle(currentPlayer, currentMap)) {
 
-            switch(event) {
+            switch (event) {
 
                 case MOVE_DOWN:
                     Data.getGameAssetsInstance().getPlayer().MoveDown();
@@ -108,7 +109,7 @@ public class GameManager implements InputListener{
         }
     }
 
-    public BufferedImage getBI(String graphic){
+    public BufferedImage getBI(String graphic) {
         switch (graphic) {
             case "wand_graueziegel":
                 return wand_graueziegel;
@@ -141,10 +142,10 @@ public class GameManager implements InputListener{
         }
     }
 
-    public ArrayList<Door> doorsInMap(String name){
-        ArrayList<Door> doors= new ArrayList<>();
-        for(Door door:Data.getGameAssetsInstance().getDoors()){
-            if(name.equals(door.getMap())){
+    public ArrayList<Door> doorsInMap(String name) {
+        ArrayList<Door> doors = new ArrayList<>();
+        for (Door door : Data.getGameAssetsInstance().getDoors()) {
+            if (name.equals(door.getMap())) {
                 doors.add(door);
             }
         }
@@ -153,9 +154,9 @@ public class GameManager implements InputListener{
 
     public void createMap(String name) {
 
-        for ( int j = 0; j < Data.getGameAssetsInstance().getMaps().size(); j++ ) {
+        for (int j = 0; j < Data.getGameAssetsInstance().getMaps().size(); j++) {
 
-            if (Data.getGameAssetsInstance().getMaps().get(j).getName().equals(name) ) {
+            if (Data.getGameAssetsInstance().getMaps().get(j).getName().equals(name)) {
 
                 int sizeX = Data.getGameAssetsInstance().getMaps().get(j).getSizeX();
                 int sizeY = Data.getGameAssetsInstance().getMaps().get(j).getSizeY();
@@ -166,9 +167,9 @@ public class GameManager implements InputListener{
 
                     for (int n = 0; n < sizeX; n++) {
 
-                        for(int m = 0; m < Data.getGameAssetsInstance().getTiles().size(); m++) {
+                        for (int m = 0; m < Data.getGameAssetsInstance().getTiles().size(); m++) {
 
-                            if (Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n].equals(Data.getGameAssetsInstance().getTiles().get(m).getName() ) ) {
+                            if (Data.getGameAssetsInstance().getMaps().get(j).getTiles()[i][n].equals(Data.getGameAssetsInstance().getTiles().get(m).getName())) {
 
                                 currentMap[i][n] = Data.getGameAssetsInstance().getTiles().get(m);
 
