@@ -85,6 +85,15 @@ public class GameManager implements InputListener{
 
     private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) {
 
+        if(CollisionManager.getCollisionManagerInstance().collidesWithDoor(currentPlayer)) {
+
+            Data.getGameAssetsInstance().getPlayer().setMapName(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetMap());
+            Data.getGameAssetsInstance().getPlayer().setX(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getX());
+            Data.getGameAssetsInstance().getPlayer().setY(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getY());
+
+            return;
+        }
+
         if(!CollisionManager.getCollisionManagerInstance().collidesWithObstacle(currentPlayer, currentMap)) {
 
             switch(event) {
