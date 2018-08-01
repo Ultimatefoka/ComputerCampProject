@@ -38,19 +38,19 @@ public class Gameloop implements Runnable {
         gameframe.clearMapImages();
         gameframe.clearImages();
         ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
-        for (int mapX = 0; mapX < 16; mapX++) {
-            for (int mapY = 0; mapY < 9; mapY++) {
-                int playerX = Data.getGameAssetsInstance().getPlayer().getX();
-                int playerY = Data.getGameAssetsInstance().getPlayer().getY();
-                int tileX = playerX-8+mapX;
-                int tileY = playerY-4+mapY;
-                if (tileX < 0 || tileY < 0 || tileX > 8 || tileY > 2) {
-                    gameframe.addImage(GameManager.getInstance().getBI("black"), mapX * 32, mapY * 32);
+        for (int locPosOnFramX = 0; locPosOnFramX < 16; locPosOnFramX++) {
+            for (int locPosOnFramY = 0; locPosOnFramY < 9; locPosOnFramY++) {
+                int gPlayerX = Data.getGameAssetsInstance().getPlayer().getX();
+                int gPlayerY = Data.getGameAssetsInstance().getPlayer().getY();
+                int gTileInMapX = gPlayerX-8+locPosOnFramX;
+                int gTileInMapY = gPlayerY-4+locPosOnFramY;
+                if (gTileInMapX < 0 || gTileInMapY < 0 || gTileInMapX > 8 || gTileInMapY > 9) {
+                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPosOnFramX * 32, locPosOnFramY * 32);
                 } else {
-                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[tileY][tileX].getGraphic()), mapX * 32, mapY * 32);
+                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * 32, locPosOnFramY * 32);
                     for (Door door : doors) {
-                        if(door.getX()==tileX&&door.getY()==tileY) {
-                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), tileX * 32, tileY * 32);
+                        if(door.getX()==gTileInMapX && door.getY()==gTileInMapY) {
+                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPosOnFramX * 32, locPosOnFramY * 32);
                         }
                     }
                 }

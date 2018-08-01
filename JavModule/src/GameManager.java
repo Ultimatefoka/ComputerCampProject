@@ -10,12 +10,12 @@ import java.util.ArrayList;
 
 public class GameManager implements InputListener{
 
-    private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/grass.png" ));
-    private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/stone.png" ));
-    private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wall.png" ));
+    private BufferedImage grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png" ));
+    private BufferedImage stone=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_graueKachel.png" ));
+    private BufferedImage wall=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png" ));
     private BufferedImage player=ImageIO.read(GameManager.class.getResourceAsStream("/Images/player.png" ));
     private BufferedImage black=ImageIO.read(GameManager.class.getResourceAsStream("/Images/black.png" ));
-    private BufferedImage door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door.png" ));
+    private BufferedImage door=ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_door.png" ));
     private static GameManager Manager=null;
     private Tile[][] currentMap;
 
@@ -39,7 +39,6 @@ public class GameManager implements InputListener{
     }
     @Override
     public void onPlayerMove(InputManager.Event event){
-        System.out.println(event);
         events.add(event);
     }
 
