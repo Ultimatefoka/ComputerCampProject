@@ -8,5 +8,6 @@ public class HostileNPC extends NPC {
         this.health = health;
 
     }
+    
 
 }
