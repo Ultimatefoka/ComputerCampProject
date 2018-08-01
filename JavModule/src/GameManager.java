@@ -60,6 +60,7 @@ public class GameManager implements InputListener{
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
             Player currentPlayer = new Player("player",Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
+
             switch (event) {
                 case MOVE_DOWN:
                     currentPlayer.MoveDown();
