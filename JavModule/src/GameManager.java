@@ -118,6 +118,28 @@ public class GameManager implements InputListener{
             Data.getGameAssetsInstance().getPlayer().setX(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetX());
             Data.getGameAssetsInstance().getPlayer().setY(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetY());
 
+            switch (event) {
+
+                case MOVE_LEFT:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.LEFT);
+                    break;
+
+                case MOVE_DOWN:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.DOWN);
+                    break;
+
+                case MOVE_UP:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.UP);
+                    break;
+
+                case MOVE_RIGHT:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.RIGHT);
+                    break;
+
+                default:
+                    break;
+            }
+
             return;
         }
 
