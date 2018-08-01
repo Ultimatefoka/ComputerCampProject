@@ -3,12 +3,12 @@
     { "graphic":"boden_grauekachel", "name":"boden_grauekachel", "traversable":true }, { "graphic":"wand_graueziegel", "name":"wand_graueziegel", "traversable":false },
     { "graphic":"boden_erde_grasskanteru", "name":"boden_erde_grasskanteru", "traversable":true },{ "graphic":"boden_erde_grasskanteu", "name":"boden_erde_grasskanteu", "traversable":true },
     { "graphic":"boden_erde_grasseckeru", "name":"boden_erde_grasseckeru", "traversable":true },
-    { "graphic":"wand_stein", "name":"wand_stein", "traversable":false } ],
+    { "graphic":"wand_stein", "name":"wand_stein", "traversable":false },{"graphic":"black", "name":"void", "traversable":false } ],
 
-  "doors": [ { "graphic":"door_door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"map1", "map":"map2" },
-    { "graphic":"door_dungeon1", "name":"door2", "x":"3", "y":"9", "targetX":"3", "targetY":"6", "targetMap":"map2", "map":"map1" },
-    { "graphic":"door_stein", "name":"door3", "x":"5", "y":"0", "targetX":"3", "targetY":"6", "targetMap":"map2", "map":"map1" },
-    { "graphic":"door_leiter", "name":"door4", "x":"2", "y":"3", "targetX":"2", "targetY":"7", "targetMap":"map2", "map":"map1" } ],
+  "doors": [ { "graphic":"door_door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
+    { "graphic":"door_dungeon1", "name":"door2", "x":"3", "y":"10", "targetX":"4", "targetY":"6", "targetMap":"Map2", "map":"map1" },
+    { "graphic":"door_stein", "name":"door3", "x":"5", "y":"1", "targetX":"4", "targetY":"6", "targetMap":"Map2", "map":"map1" },
+    { "graphic":"door_leiter", "name":"door4", "x":"2", "y":"3", "targetX":"2", "targetY":"7", "targetMap":"Map2", "map":"map1" } ],
 
   "collectibles": [ { "graphic":"placeHolder.jpg", "name":"healing1", "x":"7", "y":"3", "item":"healing1", "map":"map1" } ],
 
@@ -18,29 +18,33 @@
   "NeutralNPC": [ { "graphic":"placeHolder.jpg", "name":"solaire", "x":"7", "y":"6", "map":"map1" },
     { "graphic":"placeHolder.jpg", "name":"artorias", "x":"6", "y":"3", "map":"map2" } ],
 
-  "maps": [ { "name":"map1", "sizeX":"9", "sizeY":"10", "tiles": [
-    ["wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein"],
-    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde"],
-    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde_grasseckeru", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteu"],
-    ["boden_erde", "boden_erde", "boden_erde_grasseckeru", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteru", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteru", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel"],
-    ["wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel"] ] },
+  "maps": [ { "name":"map1", "sizeX":"11", "sizeY":"12", "tiles": [
+    ["void", "void", "void", "void", "void", "void", "void", "void", "void", "void", "void"],
+    ["void", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "void"],
+    ["void", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "void"],
+    ["void", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde_grasseckeru", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "void"],
+    ["void", "boden_erde", "boden_erde", "boden_erde_grasseckeru", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteru", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteru", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "void"],
+    ["void", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "void"],
+    ["void", "void", "void", "void", "void", "void", "void", "void", "void", "void", "void"]] },
 
-    { "name":"map2", "sizeX":"9", "sizeY":"10", "tiles": [
-    ["wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"] ] }
+    { "name":"map2", "sizeX":"11", "sizeY":"12", "tiles": [
+    ["void", "void", "void", "void", "void", "void", "void", "void", "void", "void", "void"],
+    ["void", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "wand_graueziegel", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "void"],
+    ["void", "void", "void", "void", "void", "void", "void", "void", "void", "void", "void"]] }
   ],
 
   "player": { "graphic":"player", "x":"7", "y":"4", "mapName":"map1" }
