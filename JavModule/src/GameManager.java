@@ -13,6 +13,9 @@ public class GameManager implements InputListener{
 
     private BufferedImage boden_grass=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grass.png" ));
     private BufferedImage boden_erde=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde.png" ));
+    private BufferedImage boden_erde_grasskanteru=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteru.png" ));
+    private BufferedImage boden_erde_grasseckeru=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasseckeru.png" ));
+    private BufferedImage boden_erde_grasskanteu=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_erde_grasskanteu.png" ));
     private BufferedImage boden_grauekachel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/boden_grauekachel.png" ));
     private BufferedImage wand_graueziegel=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_graueziegel.png" ));
     private BufferedImage wand_stein=ImageIO.read(GameManager.class.getResourceAsStream("/Images/wand_stein.png" ));
@@ -56,18 +59,23 @@ public class GameManager implements InputListener{
     public void update(){
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
+            Player currentPlayer = new Player("player",Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
             switch (event) {
                 case MOVE_DOWN:
-                    Data.getGameAssetsInstance().getPlayer().MoveDown();
+                    currentPlayer.MoveDown();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_UP:
-                    Data.getGameAssetsInstance().getPlayer().MoveUp();
+                    currentPlayer.MoveUp();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_LEFT:
-                    Data.getGameAssetsInstance().getPlayer().MoveLeft();
+                    currentPlayer.MoveLeft();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_RIGHT:
-                    Data.getGameAssetsInstance().getPlayer().MoveRight();
+                    currentPlayer.MoveRight();
+                    checkPlayerCollision(event, currentPlayer);
                     break;
                 default:
                     break;
@@ -75,7 +83,7 @@ public class GameManager implements InputListener{
         }
     }
 
-    private void checkPlayerObstacleCollision(InputManager.Event event, Player currentPlayer) {
+    private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) {
 
         if(!CollisionManager.getCollisionManagerInstance().collidesWithObstacle(currentPlayer, currentMap)) {
 
@@ -97,9 +105,6 @@ public class GameManager implements InputListener{
                     Data.getGameAssetsInstance().getPlayer().MoveRight();
                     break;
             }
-        } else {
-
-            
         }
     }
 
@@ -113,6 +118,12 @@ public class GameManager implements InputListener{
                 return boden_grauekachel;
             case "boden_grass":
                 return boden_grass;
+            case "boden_erde_grasskanteru":
+                return boden_erde_grasskanteru;
+            case "boden_erde_grasskanteu":
+                return boden_erde_grasskanteu;
+            case "boden_erde_grasseckeru":
+                return boden_erde_grasseckeru;
             case "boden_erde":
                 return boden_erde;
             case "player":

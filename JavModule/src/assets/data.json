@@ -1,6 +1,8 @@
 {
   "tiles": [ { "graphic":"boden_grass", "name":"boden_grass", "traversable":true },{ "graphic":"boden_erde", "name":"boden_erde", "traversable":true },
     { "graphic":"boden_grauekachel", "name":"boden_grauekachel", "traversable":true }, { "graphic":"wand_graueziegel", "name":"wand_graueziegel", "traversable":false },
+    { "graphic":"boden_erde_grasskanteru", "name":"boden_erde_grasskanteru", "traversable":true },{ "graphic":"boden_erde_grasskanteu", "name":"boden_erde_grasskanteu", "traversable":true },
+    { "graphic":"boden_erde_grasseckeru", "name":"boden_erde_grasseckeru", "traversable":true },
     { "graphic":"wand_stein", "name":"wand_stein", "traversable":false } ],
 
   "doors": [ { "graphic":"door_door", "name":"door1", "x":"3", "y":"5", "targetX":"4", "targetY":"6", "targetMap":"Map1", "map":"map2" },
@@ -19,9 +21,9 @@
   "maps": [ { "name":"map1", "sizeX":"9", "sizeY":"10", "tiles": [
     ["wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein", "wand_stein"],
     ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde"],
-    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde"],
-    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_grass", "boden_grass", "boden_grass"],
-    ["boden_erde", "boden_erde", "boden_erde", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde", "boden_erde_grasseckeru", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteu"],
+    ["boden_erde", "boden_erde", "boden_erde_grasseckeru", "boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteru", "boden_grass", "boden_grass", "boden_grass"],
+    ["boden_erde_grasskanteu", "boden_erde_grasskanteu", "boden_erde_grasskanteru", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
     ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass"],
     ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel"],
     ["boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grass", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel", "boden_grauekachel"],
