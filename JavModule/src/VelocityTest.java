@@ -23,7 +23,7 @@ public class VelocityTest {
         }
     }
 
-    public Player(ArrayList<String> sprites,String mapName, int x, int y) {
+    public VelocityTest(ArrayList<String> sprites,String mapName, int x, int y) {
 
         this.sprites = sprites;
         this.mapName = mapName;

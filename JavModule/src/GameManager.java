@@ -55,7 +55,7 @@ public class GameManager implements InputListener{
     private BufferedImage door_dungeon1 = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png"));
     private static GameManager Manager = null;
     private Tile[][] currentMap;
-    private int tileSize=32;
+    private int tileSize=64;
 
     public ArrayList<InputManager.Event> events;
 
@@ -84,6 +84,9 @@ public class GameManager implements InputListener{
     public void onPlayerMove(InputManager.Event event){
         events.add(event);
     }
+
+    @Override
+    public void onPlayerAttack(){}
 
     public Tile[][] getCurrentMap() {
         return currentMap;

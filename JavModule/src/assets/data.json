@@ -57,6 +57,6 @@
     ["void", "void", "void", "void", "void", "void", "void", "void", "void", "void", "void"]] }
   ],
 
-  "player": { "sprites":[ "player_hinten", "player_rechts", "player_links", "player_vorne" ], "x":"7", "y":"4", "mapName":"map1", "facing":"DOWN",
+  "player": { "sprites":[ "player_hinten", "player_rechts", "player_links", "player_vorne" ], "x":"128", "y":"128", "mapName":"map1", "facing":"DOWN",
    "damage":"2", "damageRadius":"80", "damageWidth":"100"}
 }
