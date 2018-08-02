@@ -55,6 +55,7 @@ public class GameManager implements InputListener{
     private BufferedImage door_dungeon1 = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png"));
     private static GameManager Manager = null;
     private Tile[][] currentMap;
+    private int tileSize=32;
 
     public ArrayList<InputManager.Event> events;
 
@@ -74,14 +75,14 @@ public class GameManager implements InputListener{
             return Manager;
         }
     }
-    @Override
-    public void onPlayerMove(InputManager.Event event){
-        events.add(event);
+
+    public int getTileSize() {
+        return tileSize;
     }
 
     @Override
-    public void onPlayerAttack() {
-        events.add(InputManager.Event.ATTACK);
+    public void onPlayerMove(InputManager.Event event){
+        events.add(event);
     }
 
     public Tile[][] getCurrentMap() {
@@ -89,7 +90,7 @@ public class GameManager implements InputListener{
     }
 
 
-    public void update(){
+    public void update() throws IOException {
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
             Player currentPlayer = new Player(Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
@@ -111,25 +112,13 @@ public class GameManager implements InputListener{
                     currentPlayer.MoveRight();
                     checkPlayerCollision(event, currentPlayer);
                     break;
-                case ATTACK:
-                    checkPlayerAttack();
-                    break;
                 default:
                     break;
             }
         }
     }
 
-    private void checkPlayerAttack() {
-
-        if(HitManager.getHitManagerInstance().hitsHostileNPC()) {
-
-            Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
-            System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth());
-        }
-    }
-
-    private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) {
+    private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) throws IOException {
 
         if(CollisionManager.getCollisionManagerInstance().collidesWithDoor(currentPlayer)) {
 
