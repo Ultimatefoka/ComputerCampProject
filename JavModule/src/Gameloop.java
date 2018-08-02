@@ -101,5 +101,4 @@ public class Gameloop implements Runnable {
         gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * GameManager.getInstance().getTileSize(), 4 * GameManager.getInstance().getTileSize());
         gameframe.repaint();
     }
-
 }

@@ -41,7 +41,7 @@ public class NeutralNPC extends NPC {
 
             createPatrol();
             walkPathing();
-            
+
         }
 
     }
