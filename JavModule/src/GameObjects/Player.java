@@ -9,6 +9,7 @@ public class Player {
     private int x;
     private int y;
     private Facing facing;
+    private int damage;
 
     public enum Facing {
 
@@ -81,6 +82,11 @@ public class Player {
         y+=1;
     }
 
+    public void attack() {
+
+
+    }
+
     public Facing getFacing() {
         return facing;
     }
@@ -92,5 +98,13 @@ public class Player {
     public String getGraphic() {
 
         return sprites.get(facing.n);
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }

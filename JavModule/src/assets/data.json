@@ -22,10 +22,10 @@
 
   "collectibles": [ { "graphic":"placeHolder.jpg", "name":"healing1", "x":"7", "y":"3", "item":"healing1", "map":"map1" } ],
 
-  "HostileNPC": [ { "graphic":"placeHolder.jpg", "name":"spider", "x":"1", "y":"5", "health":"6", "map":"map1" },
+  "hostileNPCs": [ { "graphic":"placeHolder.jpg", "name":"spider", "x":"7", "y":"5", "health":"6", "map":"map1" },
     { "graphic":"placeHolder.jpg", "name":"krakzilla", "x":"4", "y":"2", "health":"30", "map":"map2" } ],
 
-  "NeutralNPC": [ { "graphic":"placeHolder.jpg", "name":"solaire", "x":"7", "y":"6", "map":"map1" },
+  "neutralNPCs": [ { "graphic":"placeHolder.jpg", "name":"solaire", "x":"7", "y":"6", "map":"map1" },
     { "graphic":"placeHolder.jpg", "name":"artorias", "x":"6", "y":"3", "map":"map2" } ],
 
   "maps": [ { "name":"map1", "sizeX":"11", "sizeY":"12", "tiles": [
@@ -57,5 +57,6 @@
     ["void", "void", "void", "void", "void", "void", "void", "void", "void", "void", "void"]] }
   ],
 
-  "player": { "sprites":[ "player_hinten", "player_rechts", "player_links", "player_vorne" ], "x":"7", "y":"4", "mapName":"map1", "facing":"DOWN" }
+  "player": { "sprites":[ "player_hinten", "player_rechts", "player_links", "player_vorne" ], "x":"7", "y":"4", "mapName":"map1", "facing":"DOWN",
+   "damage":"2"}
 }
