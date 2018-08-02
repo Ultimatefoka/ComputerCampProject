@@ -29,11 +29,11 @@ public class GameFrame extends JFrame {
 	public void addMapImage(BufferedImage img, int x, int y) {
 		gpanel.addMapImage(img, x, y);
 	}
-	/*
+
 	public void addText(GameText text ) {
 		gpanel.addText(text);
 	}
-	*/
+
 	public void setMapImages(List<GameImage> list) {
 		gpanel.setMapimages(list);
 	}

@@ -1,6 +1,8 @@
 import GameObjects.Door;
 import Rendering.GameFrame;
+import Rendering.GameText;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
