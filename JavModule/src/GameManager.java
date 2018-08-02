@@ -1,4 +1,5 @@
 import GameObjects.Door;
+import GameObjects.HostileNPC;
 import GameObjects.Player;
 import GameObjects.Tile;
 
@@ -53,6 +54,7 @@ public class GameManager implements InputListener{
     private BufferedImage door_leiter = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_leiter.png"));
     private BufferedImage door_stein = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_stein.png"));
     private BufferedImage door_dungeon1 = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png"));
+    private BufferedImage hostile_NPC = ImageIO.read(GameManager.class.getResourceAsStream("/Images/hostile_NPC.png"));
     private static GameManager Manager = null;
     private Tile[][] currentMap;
     private int tileSize=64;
@@ -287,6 +289,8 @@ public class GameManager implements InputListener{
                 return player_links;
             case "player_rechts":
                 return player_rechts;
+            case "hostile_NPC":
+                return hostile_NPC;
             case "door_door":
                 return door_door;
             case "door_leiter":
@@ -308,6 +312,16 @@ public class GameManager implements InputListener{
             }
         }
         return doors;
+    }
+
+    public ArrayList<HostileNPC> hNPCsInMap(String name){
+        ArrayList<HostileNPC> npcs = new ArrayList<>();
+        for (HostileNPC npc : Data.getGameAssetsInstance().getHostileNPCs()) {
+            if (name.equals(npc.getMap())) {
+                npcs.add(npc);
+            }
+        }
+        return npcs;
     }
 
     public void createMap(String name) {

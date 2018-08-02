@@ -41,6 +41,10 @@ public abstract class NPC {
         this.name = name;
     }
 
+    public String getMap() {
+        return map;
+    }
+
     public void setX(int x) {
         this.x = x;
     }
