@@ -8,10 +8,9 @@ public class Gameloop implements Runnable {
 
     private boolean running = true;
     private GameFrame gameframe;
-    private int tileSize=32;
 
     public Gameloop() throws IOException {
-        gameframe = new GameFrame("CoolesSpiel", tileSize * 16, (tileSize * 9) + 35);
+        gameframe = new GameFrame("CoolesSpiel", GameManager.getInstance().getTileSize() * 17, (GameManager.getInstance().getTileSize() * 10) + 35);
         GameManager.getInstance().initInputManager(gameframe);
     }
 
@@ -32,10 +31,11 @@ public class Gameloop implements Runnable {
                 Thread.sleep(40);
             } catch (Exception ex) {
            }
+           //running = false;
         }
     }
 
-    public void render(String map) throws IOException {
+    /*public void render(String map) throws IOException {
         gameframe.clearMapImages();
         gameframe.clearImages();
         ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
@@ -48,18 +48,57 @@ public class Gameloop implements Runnable {
                 int sizeX = GameManager.getInstance().getCurrentMap()[1].length-1;
                 int sizeY = GameManager.getInstance().getCurrentMap().length-1;
                 if (gTileInMapX < 0 || gTileInMapY < 0 || gTileInMapX > sizeX || gTileInMapY > sizeY) {
-                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPosOnFramX * tileSize, locPosOnFramY * tileSize);
+                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
                 } else {
-                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * tileSize, locPosOnFramY * tileSize);
+                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
                     for (Door door : doors) {
                         if(door.getX()==gTileInMapX && door.getY()==gTileInMapY) {
-                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPosOnFramX * tileSize, locPosOnFramY * tileSize);
+                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
                         }
                     }
                 }
             }
         }
-        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * tileSize, 4 * tileSize);
+        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * GameManager.getInstance().getTileSize(), 4 * GameManager.getInstance().getTileSize());
+        gameframe.repaint();
+    }*/
+
+    public void render(String map) throws IOException {
+        gameframe.clearMapImages();
+        gameframe.clearImages();
+        int tileSize = GameManager.getInstance().getTileSize();
+        int sizeX = GameManager.getInstance().getCurrentMap()[1].length-1;
+        int sizeY = GameManager.getInstance().getCurrentMap().length-1;
+        ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
+        System.out.println(Data.getGameAssetsInstance().getPlayer().getX()+"/"+Data.getGameAssetsInstance().getPlayer().getY());
+        int startValueX = -(Data.getGameAssetsInstance().getPlayer().getX()%GameManager.getInstance().getTileSize());
+        int startValueY = -(Data.getGameAssetsInstance().getPlayer().getY()%GameManager.getInstance().getTileSize());
+        System.out.println(startValueX+"/"+startValueY);
+        int locTileInMapX;
+        int locTileInMapY;
+        for(int locPxPosOnFrameX=startValueX;locPxPosOnFrameX<17*tileSize;locPxPosOnFrameX+=tileSize){
+            for(int locPxPosOnFrameY=startValueY;locPxPosOnFrameY<10*tileSize;locPxPosOnFrameY+=tileSize) {
+                locTileInMapX = (int) (Data.getGameAssetsInstance().getPlayer().getX() / tileSize) - 7 + (int) (((locPxPosOnFrameX +tileSize)/ tileSize)-1);
+                if(startValueX==0){
+                    locTileInMapX-=1;
+                }
+                locTileInMapY = (int) (Data.getGameAssetsInstance().getPlayer().getY() / tileSize) - 3 + (int) (((locPxPosOnFrameY +tileSize) / tileSize)-1);
+                if(startValueY==0){
+                    locTileInMapY-=1;
+                }
+                if (locTileInMapX < 0 || locTileInMapY < 0 || locTileInMapX > sizeX || locTileInMapY > sizeY) {
+                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPxPosOnFrameX, locPxPosOnFrameY);
+                } else {
+                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[locTileInMapY][locTileInMapX].getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
+                    for (Door door : doors) {
+                        if(door.getX()==locTileInMapX && door.getY()==locTileInMapY) {
+                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
+                        }
+                    }
+                }
+            }
+        }
+        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * GameManager.getInstance().getTileSize(), 4 * GameManager.getInstance().getTileSize());
         gameframe.repaint();
     }
 

@@ -55,6 +55,7 @@ public class GameManager implements InputListener{
     private BufferedImage door_dungeon1 = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png"));
     private static GameManager Manager = null;
     private Tile[][] currentMap;
+    private int tileSize=32;
 
     public ArrayList<InputManager.Event> events;
 
@@ -74,6 +75,11 @@ public class GameManager implements InputListener{
             return Manager;
         }
     }
+
+    public int getTileSize() {
+        return tileSize;
+    }
+
     @Override
     public void onPlayerMove(InputManager.Event event){
         events.add(event);
@@ -84,7 +90,7 @@ public class GameManager implements InputListener{
     }
 
 
-    public void update(){
+    public void update() throws IOException {
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
             Player currentPlayer = new Player(Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
@@ -112,7 +118,7 @@ public class GameManager implements InputListener{
         }
     }
 
-    private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) {
+    private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) throws IOException {
 
         if(CollisionManager.getCollisionManagerInstance().collidesWithDoor(currentPlayer)) {
 

@@ -1,6 +1,8 @@
 import GameObjects.Player;
 import GameObjects.Tile;
 
+import java.io.IOException;
+
 public class CollisionManager {
 
     private static CollisionManager collisionManagerInstance;
@@ -16,10 +18,9 @@ public class CollisionManager {
         return collisionManagerInstance;
     }
 
-    public boolean collidesWithObstacle(Player player, Tile[][] map) {
+    public boolean collidesWithObstacle(Player player, Tile[][] map) throws IOException {
 
-        if(map[player.getY()][player.getX()].isTraversable()) {
-
+        if(map[(int)(player.getY()/GameManager.getInstance().getTileSize())][(int)(player.getX()/GameManager.getInstance().getTileSize())].isTraversable()) {
             return false;
         }
 
