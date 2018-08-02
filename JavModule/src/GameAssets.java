@@ -7,7 +7,8 @@ public class GameAssets {
     private ArrayList<Tile> tiles;
     private ArrayList<Door> doors;
     private ArrayList<Collectible> collectibles;
-    private ArrayList<NPC> NPCs;
+    private ArrayList<HostileNPC> hostileNPCs;
+    private ArrayList<NeutralNPC> neutralNPCs;
     private Player player;
     private ArrayList<Map> maps;
 
@@ -16,8 +17,12 @@ public class GameAssets {
         return doors;
     }
 
-    public ArrayList<NPC> getNPCs() {
-        return NPCs;
+    public ArrayList<HostileNPC> getHostileNPCs() {
+        return hostileNPCs;
+    }
+
+    public ArrayList<NeutralNPC> getNeutralNPCs() {
+        return neutralNPCs;
     }
 
     public ArrayList<Tile> getTiles() {
@@ -36,8 +41,12 @@ public class GameAssets {
         this.doors = doors;
     }
 
-    public void setNPCs(ArrayList<NPC> NPCs) {
-        this.NPCs = NPCs;
+    public void setHostileNPCs(ArrayList<HostileNPC> hostileNPCs) {
+        this.hostileNPCs = hostileNPCs;
+    }
+
+    public void setNeutralNPCs(ArrayList<NeutralNPC> neutralNPCs) {
+        this.neutralNPCs = neutralNPCs;
     }
 
     public void setTiles(ArrayList<Tile> tiles) {

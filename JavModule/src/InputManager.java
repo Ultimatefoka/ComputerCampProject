@@ -40,6 +40,8 @@ public class InputManager implements KeyListener {
 			listener.onPlayerMove(Event.MOVE_RIGHT);
 		} else if (e.getKeyCode() == KeyEvent.VK_S) {
 			listener.onPlayerMove(Event.MOVE_DOWN);
+		} else if (e.getKeyCode() == KeyEvent.VK_C) {
+			listener.onPlayerAttack();
 		}
 	}
 
@@ -54,7 +56,7 @@ public class InputManager implements KeyListener {
 	}
 
 	public enum Event {
-		MOVE_LEFT, MOVE_RIGHT, MOVE_UP, MOVE_DOWN;
+		MOVE_LEFT, MOVE_RIGHT, MOVE_UP, MOVE_DOWN, ATTACK;
 	}
 
 	public Event getAction() {
