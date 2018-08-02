@@ -1,14 +1,15 @@
-import GameObjects.Player;
+import java.util.ArrayList;
 
 public class VelocityTest {
 
-    private String graphic;
-    private String name;
+    private ArrayList<String> sprites;
+    private String mapName;
     private Vector position;
     private Vector velocity;
-    private static float friction = 0.5f; //Would be set by each object, (0 < f < 1)
-    private static float acceleration = 0.2f ; //Would be set by each object
-    private Facing facing = Facing.DOWN;
+    private static float friction; //Would be set by each object, (0 < f < 1)
+    private static float acceleration; //Would be set by each object
+    private Facing facing;
+    private int damage;
 
     public enum Facing {
 
@@ -20,6 +21,18 @@ public class VelocityTest {
 
             this.n = n;
         }
+    }
+
+    public Player(ArrayList<String> sprites,String mapName, int x, int y) {
+
+        this.sprites = sprites;
+        this.mapName = mapName;
+        position.setX(x);
+        position.setY(y);
+        facing = Facing.DOWN;
+        acceleration = 0.2f;
+        friction = 0.5f;
+
     }
 
     public void moveUP() {
@@ -54,12 +67,20 @@ public class VelocityTest {
 
     }
 
-    public void setGraphic(String graphic) {
-        this.graphic = graphic;
+    public void setSprites(ArrayList<String> sprites) {
+        this.sprites = sprites;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public ArrayList<String> getSprites() {
+        return sprites;
+    }
+
+    public void setMapName(String mapName) {
+        this.mapName = mapName;
+    }
+
+    public String getMapName() {
+        return mapName;
     }
 
     public void setX(int x) {
@@ -82,12 +103,6 @@ public class VelocityTest {
         VelocityTest.friction = friction;
     }
 
-    public String getGraphic() {return graphic; }
-
-    public String getName() {
-        return name;
-    }
-
     public int getX() {
         return Math.round(this.position.getX());
     }
@@ -108,5 +123,13 @@ public class VelocityTest {
 
     public Facing getFacing() {
         return facing;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }
