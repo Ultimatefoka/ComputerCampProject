@@ -35,7 +35,8 @@ public class Gameloop implements Runnable {
         }
     }
 
-    /*public void render(String map) throws IOException {
+    /* old version
+    public void render(String map) throws IOException {
         gameframe.clearMapImages();
         gameframe.clearImages();
         ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
