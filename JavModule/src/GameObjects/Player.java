@@ -10,6 +10,8 @@ public class Player {
     private int y;
     private Facing facing;
     private int damage;
+    private int damageRadius;
+    private int damageWidth;
 
     public enum Facing {
 
@@ -106,5 +108,21 @@ public class Player {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public int getDamageRadius() {
+        return damageRadius;
+    }
+
+    public int getDamageWidth() {
+        return damageWidth;
+    }
+
+    public void setDamageRadius(int damageRadius) {
+        this.damageRadius = damageRadius;
+    }
+
+    public void setDamageWidth(int damageWidth) {
+        this.damageWidth = damageWidth;
     }
 }

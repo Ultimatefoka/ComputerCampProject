@@ -182,6 +182,26 @@ public class GameManager implements InputListener{
                     Data.getGameAssetsInstance().getPlayer().MoveRight();
                     break;
             }
+        } else {
+
+            switch(event) {
+
+                case MOVE_DOWN:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.DOWN);
+                    break;
+
+                case MOVE_UP:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.UP);
+                    break;
+
+                case MOVE_LEFT:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.LEFT);
+                    break;
+
+                case MOVE_RIGHT:
+                    Data.getGameAssetsInstance().getPlayer().setFacing(Player.Facing.RIGHT);
+                    break;
+            }
         }
     }
 
