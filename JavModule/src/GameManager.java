@@ -55,7 +55,7 @@ public class GameManager implements InputListener{
     private BufferedImage door_dungeon1 = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png"));
     private static GameManager Manager = null;
     private Tile[][] currentMap;
-    private int tileSize=32;
+    private int tileSize=64;
 
     public ArrayList<InputManager.Event> events;
 
@@ -85,6 +85,11 @@ public class GameManager implements InputListener{
         events.add(event);
     }
 
+    @Override
+    public void onPlayerAttack() {
+        events.add(InputManager.Event.ATTACK);
+    }
+
     public Tile[][] getCurrentMap() {
         return currentMap;
     }
@@ -112,9 +117,21 @@ public class GameManager implements InputListener{
                     currentPlayer.MoveRight();
                     checkPlayerCollision(event, currentPlayer);
                     break;
+                case ATTACK:
+                    checkPlayerAttack();
+                    break;
                 default:
                     break;
             }
+        }
+    }
+
+    private void checkPlayerAttack() {
+
+        if(HitManager.getHitManagerInstance().hitsHostileNPC()) {
+
+            Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
+            System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth());
         }
     }
 

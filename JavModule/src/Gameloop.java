@@ -71,10 +71,10 @@ public class Gameloop implements Runnable {
         int sizeX = GameManager.getInstance().getCurrentMap()[1].length-1;
         int sizeY = GameManager.getInstance().getCurrentMap().length-1;
         ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
-        System.out.println(Data.getGameAssetsInstance().getPlayer().getX()+"/"+Data.getGameAssetsInstance().getPlayer().getY());
+        //System.out.println(Data.getGameAssetsInstance().getPlayer().getX()+"/"+Data.getGameAssetsInstance().getPlayer().getY());
         int startValueX = -(Data.getGameAssetsInstance().getPlayer().getX()%GameManager.getInstance().getTileSize());
         int startValueY = -(Data.getGameAssetsInstance().getPlayer().getY()%GameManager.getInstance().getTileSize());
-        System.out.println(startValueX+"/"+startValueY);
+        //System.out.println(startValueX+"/"+startValueY);
         int locTileInMapX;
         int locTileInMapY;
         for(int locPxPosOnFrameX=startValueX;locPxPosOnFrameX<17*tileSize;locPxPosOnFrameX+=tileSize){
