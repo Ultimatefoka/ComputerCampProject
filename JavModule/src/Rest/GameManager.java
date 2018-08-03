@@ -88,10 +88,14 @@ public class GameManager implements InputListener{
             }
         }
         for(HostileNPC npc:hNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
-            npc.move();
+            if(npc.getState()==NPC.State.ALIVE) {
+                npc.move();
+            }
         }
         /*for(NeutralNPC npc:nNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
-            npc.walkPathing();
+            if(npc.getState()==NPC.State.ALIVE) {
+                npc.walkPathing();
+            }
         }*/
     }
 

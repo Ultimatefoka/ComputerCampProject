@@ -2,6 +2,7 @@ package Rest;
 
 import GameObjects.Door;
 import GameObjects.HostileNPC;
+import GameObjects.NPC;
 import GameObjects.NeutralNPC;
 import Rendering.GameFrame;
 import Images.Images;
@@ -38,7 +39,7 @@ public class Gameloop implements Runnable {
             }
         }
     }
-    
+
 
     public void render(String map) throws IOException {
         gameframe.clearMapImages();
@@ -89,10 +90,14 @@ public class Gameloop implements Runnable {
         }
         //render NPCs
         for (HostileNPC npc : hnpcs) {
-            gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
+            if(npc.getState()==NPC.State.ALIVE) {
+                gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0 + npc.getX(), locPxY0 + npc.getY());
+            }
         }
         for (NeutralNPC npc : nnpcs) {
-            gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
+            if(npc.getState()==NPC.State.ALIVE) {
+                gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0 + npc.getX(), locPxY0 + npc.getY());
+            }
         }
         //render Player
         gameframe.addImage(Images.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 *tileSize, 4 * tileSize);
