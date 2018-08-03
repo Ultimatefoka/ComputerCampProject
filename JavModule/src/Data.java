@@ -24,7 +24,7 @@ public class Data {
 
         if(gameAssetsInstance == null) {
 
-            File dataFile = new File("C:\\Users\\moriburg18\\IdeaProjects\\ComputerCampProject\\JavModule\\src\\assets\\data.json");
+            File dataFile = new File("C:\\Users\\niklvolk18\\IdeaProjects\\ComputerCampProject\\JavModule\\src\\assets\\data.json");
             Gson gson = new  Gson();
             JsonReader reader;
 

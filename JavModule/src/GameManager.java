@@ -96,23 +96,30 @@ public class GameManager implements InputListener{
     public void update() throws IOException {
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
-            Player currentPlayer = new Player(Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(), Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY());
+            Player currentPlayer = new Player(
+
+                    Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(),
+                    Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY(),
+                    Data.getGameAssetsInstance().getPlayer().getFacing(), Data.getGameAssetsInstance().getPlayer().getDamage(),
+                    Data.getGameAssetsInstance().getPlayer().getDamageRadius(), Data.getGameAssetsInstance().getPlayer().getDamageWidth()
+
+            );
 
             switch (event) {
                 case MOVE_DOWN:
-                    currentPlayer.MoveDown();
+                    currentPlayer.moveDown();
                     checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_UP:
-                    currentPlayer.MoveUp();
+                    currentPlayer.moveUp();
                     checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_LEFT:
-                    currentPlayer.MoveLeft();
+                    currentPlayer.moveLeft();
                     checkPlayerCollision(event, currentPlayer);
                     break;
                 case MOVE_RIGHT:
-                    currentPlayer.MoveRight();
+                    currentPlayer.moveRight();
                     checkPlayerCollision(event, currentPlayer);
                     break;
                 default:
@@ -121,7 +128,7 @@ public class GameManager implements InputListener{
         }
     }
 
-    private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) throws IOException {
+        private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) throws IOException {
 
         if(CollisionManager.getCollisionManagerInstance().collidesWithDoor(currentPlayer)) {
 
@@ -159,19 +166,19 @@ public class GameManager implements InputListener{
             switch(event) {
 
                 case MOVE_DOWN:
-                    Data.getGameAssetsInstance().getPlayer().MoveDown();
+                    Data.getGameAssetsInstance().getPlayer().moveDown();
                     break;
 
                 case MOVE_UP:
-                    Data.getGameAssetsInstance().getPlayer().MoveUp();
+                    Data.getGameAssetsInstance().getPlayer().moveUp();
                     break;
 
                 case MOVE_LEFT:
-                    Data.getGameAssetsInstance().getPlayer().MoveLeft();
+                    Data.getGameAssetsInstance().getPlayer().moveLeft();
                     break;
 
                 case MOVE_RIGHT:
-                    Data.getGameAssetsInstance().getPlayer().MoveRight();
+                    Data.getGameAssetsInstance().getPlayer().moveRight();
                     break;
             }
         } else {
