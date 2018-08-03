@@ -1,3 +1,5 @@
+package Rest;
+
 import GameObjects.Player;
 import GameObjects.Tile;
 
