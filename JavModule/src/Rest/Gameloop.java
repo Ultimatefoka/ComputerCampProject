@@ -4,6 +4,7 @@ import GameObjects.Door;
 import GameObjects.HostileNPC;
 import GameObjects.NeutralNPC;
 import Rendering.GameFrame;
+import Images.Images;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,18 +53,18 @@ public class Gameloop implements Runnable {
                 int sizeX = GameManager.getInstance().getCurrentMap()[1].length-1;
                 int sizeY = GameManager.getInstance().getCurrentMap().length-1;
                 if (gTileInMapX < 0 || gTileInMapY < 0 || gTileInMapX > sizeX || gTileInMapY > sizeY) {
-                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
+                    gameframe.addImage(Images.getInstance().getBI("black"), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
                 } else {
-                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
+                    gameframe.addMapImage(Images.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
                     for (Door door : doors) {
                         if(door.getX()==gTileInMapX && door.getY()==gTileInMapY) {
-                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
+                            gameframe.addImage(Images.getInstance().getBI(door.getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
                         }
                     }
                 }
             }
         }
-        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * GameManager.getInstance().getTileSize(), 4 * GameManager.getInstance().getTileSize());
+        gameframe.addImage(Images.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * GameManager.getInstance().getTileSize(), 4 * GameManager.getInstance().getTileSize());
         gameframe.repaint();
     }*/
 
@@ -102,13 +103,13 @@ public class Gameloop implements Runnable {
                 int locPxInMapY = playerY - 3 * tileSize + locPxPosOnFrameY;
                 //render Map
                 if (locTileInMapX < 0 || locTileInMapY < 0 || locTileInMapX > sizeX || locTileInMapY > sizeY) {
-                    gameframe.addImage(GameManager.getInstance().getBI("black"), locPxPosOnFrameX, locPxPosOnFrameY);
+                    gameframe.addImage(Images.getInstance().getBI("black"), locPxPosOnFrameX, locPxPosOnFrameY);
                 } else {
-                    gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[locTileInMapY][locTileInMapX].getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
+                    gameframe.addMapImage(Images.getInstance().getBI(GameManager.getInstance().getCurrentMap()[locTileInMapY][locTileInMapX].getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
                     //render Doors
                     for (Door door : doors) {
                         if (door.getX() == locTileInMapX && door.getY() == locTileInMapY) {
-                            gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
+                            gameframe.addImage(Images.getInstance().getBI(door.getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
                         }
                     }
                 }
@@ -116,13 +117,13 @@ public class Gameloop implements Runnable {
         }
         //render NPCs
         for (HostileNPC npc : hnpcs) {
-            gameframe.addImage(GameManager.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
+            gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
         }
         for (NeutralNPC npc : nnpcs) {
-            gameframe.addImage(GameManager.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
+            gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
         }
         //render Player
-        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 *tileSize, 4 * tileSize);
+        gameframe.addImage(Images.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 *tileSize, 4 * tileSize);
         gameframe.repaint();
     }
 }
