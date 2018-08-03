@@ -69,19 +69,19 @@ public class Player {
 
     public void MoveUp(){
         facing = Facing.UP;
-        y-=1;
+        y-=3;
     }
     public void MoveRight(){
         facing = Facing.RIGHT;
-        x+=1;
+        x+=3;
     }
     public void MoveLeft(){
         facing = Facing.LEFT;
-        x-=1;
+        x-=3;
     }
     public void MoveDown(){
         facing = Facing.DOWN;
-        y+=1;
+        y+=3;
     }
 
     public void attack() {

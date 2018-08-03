@@ -1,6 +1,6 @@
-import GameObjects.Door;
-import GameObjects.Player;
-import GameObjects.Tile;
+package Rest;
+
+import GameObjects.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -53,6 +53,7 @@ public class GameManager implements InputListener{
     private BufferedImage door_leiter = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_leiter.png"));
     private BufferedImage door_stein = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_stein.png"));
     private BufferedImage door_dungeon1 = ImageIO.read(GameManager.class.getResourceAsStream("/Images/door_dungeon1.png"));
+    private BufferedImage hostile_NPC = ImageIO.read(GameManager.class.getResourceAsStream("/Images/hostile_NPC.png"));
     private static GameManager Manager = null;
     private Tile[][] currentMap;
     private int tileSize=64;
@@ -86,7 +87,9 @@ public class GameManager implements InputListener{
     }
 
     @Override
-    public void onPlayerAttack(){}
+    public void onPlayerAttack() {
+        events.add(InputManager.Event.ATTACK);
+    }
 
     public Tile[][] getCurrentMap() {
         return currentMap;
@@ -122,9 +125,33 @@ public class GameManager implements InputListener{
                     currentPlayer.moveRight();
                     checkPlayerCollision(event, currentPlayer);
                     break;
+                case ATTACK:
+                    checkPlayerAttack();
+                    break;
                 default:
                     break;
             }
+        }
+        for(HostileNPC npc:hNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
+            npc.move();
+        }
+        /*for(NeutralNPC npc:nNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
+            npc.walkPathing();
+        }*/
+    }
+
+    private void checkPlayerAttack() {
+
+        if(HitManager.getHitManagerInstance().hitsHostileNPC()) {
+
+            for(int i = 0;i < HitManager.getHitManagerInstance().getHostileNPCsHit().size(); i++) {
+
+                Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
+                System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth());
+            }
+
+            //Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
+            //System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth());
         }
     }
 
@@ -280,6 +307,8 @@ public class GameManager implements InputListener{
                 return player_links;
             case "player_rechts":
                 return player_rechts;
+            case "hostile_NPC":
+                return hostile_NPC;
             case "door_door":
                 return door_door;
             case "door_leiter":
@@ -301,6 +330,25 @@ public class GameManager implements InputListener{
             }
         }
         return doors;
+    }
+
+    public ArrayList<HostileNPC> hNPCsInMap(String name){
+        ArrayList<HostileNPC> npcs = new ArrayList<>();
+        for (HostileNPC npc : Data.getGameAssetsInstance().getHostileNPCs()) {
+            if (name.equals(npc.getMap())) {
+                npcs.add(npc);
+            }
+        }
+        return npcs;
+    }
+    public ArrayList<NeutralNPC> nNPCsInMap(String name){
+        ArrayList<NeutralNPC> npcs = new ArrayList<>();
+        for (NeutralNPC npc : Data.getGameAssetsInstance().getNeutralNPCs()) {
+            if (name.equals(npc.getMap())) {
+                npcs.add(npc);
+            }
+        }
+        return npcs;
     }
 
     public void createMap(String name) {
