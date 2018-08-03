@@ -119,9 +119,9 @@ public class Gameloop implements Runnable {
         for (HostileNPC npc : hnpcs) {
             gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
         }
-        /*for (NeutralNPC npc : nnpcs) {
+        for (NeutralNPC npc : nnpcs) {
             gameframe.addImage(Images.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
-        }*/
+        }
         //render Player
         gameframe.addImage(Images.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 *tileSize, 4 * tileSize);
         gameframe.repaint();
