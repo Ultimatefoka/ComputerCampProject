@@ -13,6 +13,7 @@ public abstract class NPC {
     private ArrayList<Vector> targets;
     private int speed;
     private State state = State.ALIVE;
+    
 
     public enum State {
 
