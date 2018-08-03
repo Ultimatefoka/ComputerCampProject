@@ -5,6 +5,8 @@ public abstract class NPC {
 
     private String graphic;
     private String name;
+    private int startX;
+    private int startY;
     private int x;
     private int y;
     private String map;
@@ -15,6 +17,8 @@ public abstract class NPC {
 
         this.graphic = graphic;
         this.name = name;
+        startX=x;
+        startY=y;
         this.x = x;
         this.y = y;
         this.map = map;
@@ -91,4 +95,11 @@ public abstract class NPC {
         y-=speed;
     }
 
+    public int getStartX() {
+        return startX;
+    }
+
+    public int getStartY() {
+        return startY;
+    }
 }

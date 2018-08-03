@@ -29,7 +29,7 @@ public class CollisionManager {
         return true;
     }
 
-    public boolean collidesWithDoor(Player player) {
+    public boolean collidesWithDoor(Player player) throws IOException {
 
         for(int i = 0; i < Data.getGameAssetsInstance().getDoors().size(); i++) {
 
@@ -51,13 +51,13 @@ public class CollisionManager {
         this.collidedDoor = collidedDoor;
     }
 
-    public int computeTileX(int x) {
+    public int computeTileX(int x) throws IOException {
 
-        return x/64;
+        return x/GameManager.getInstance().getTileSize();
     }
 
-    public int computeTileY(int y) {
+    public int computeTileY(int y) throws IOException {
 
-        return y/64;
+        return y/GameManager.getInstance().getTileSize();
     }
 }

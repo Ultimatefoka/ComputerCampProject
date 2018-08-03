@@ -35,7 +35,6 @@ public class Gameloop implements Runnable {
                 Thread.sleep(40);
             } catch (Exception ex) {
             }
-            //running = false;
         }
     }
 
