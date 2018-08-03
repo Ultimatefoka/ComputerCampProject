@@ -20,4 +20,6 @@ public class HostileNPC extends NPC {
     public void setHealth(int health) {
         this.health = health;
     }
+
+    
 }
