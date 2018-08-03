@@ -6,18 +6,20 @@ public class NeutralNPC extends NPC {
     private int distanceX;
     private int distanceY;
 
-    public NeutralNPC(String graphic, String name, int x, int y, String map, int distanceX, int distanceY) {
 
-        super(graphic, name, x, y, map);
+    public NeutralNPC(String graphic, String name, int x, int y, String map, int distanceX, int distanceY,int speed) {
+
+        super(graphic, name, x, y, map,speed);
         this.distanceX = distanceX;
         this.distanceY = distanceY;
+        createPatrol();
 
     }
 
     public void createPatrol() {
 
-        this.addWaypoint(distanceX, distanceY);
-        this.addWaypoint(-distanceX, -distanceY);
+        this.addVector(distanceX, distanceY);
+        this.addVector(-distanceX, -distanceY);
 
     }
 

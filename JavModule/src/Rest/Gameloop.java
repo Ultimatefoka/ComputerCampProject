@@ -1,9 +1,10 @@
+package Rest;
+
 import GameObjects.Door;
 import GameObjects.HostileNPC;
+import GameObjects.NeutralNPC;
 import Rendering.GameFrame;
-import Rendering.GameText;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -74,7 +75,8 @@ public class Gameloop implements Runnable {
         int sizeX = GameManager.getInstance().getCurrentMap()[1].length - 1;
         int sizeY = GameManager.getInstance().getCurrentMap().length - 1;
         ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
-        ArrayList<HostileNPC> npcs = GameManager.getInstance().hNPCsInMap(map);
+        ArrayList<HostileNPC> hnpcs = GameManager.getInstance().hNPCsInMap(map);
+        ArrayList<NeutralNPC> nnpcs = GameManager.getInstance().nNPCsInMap(map);
         int playerX = Data.getGameAssetsInstance().getPlayer().getX();
         int playerY = Data.getGameAssetsInstance().getPlayer().getY();
         int startValueX = -(playerX % GameManager.getInstance().getTileSize());
@@ -114,7 +116,10 @@ public class Gameloop implements Runnable {
             }
         }
         //render NPCs
-        for (HostileNPC npc : npcs) {
+        for (HostileNPC npc : hnpcs) {
+            gameframe.addImage(GameManager.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
+        }
+        for (NeutralNPC npc : nnpcs) {
             gameframe.addImage(GameManager.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
         }
         //render Player

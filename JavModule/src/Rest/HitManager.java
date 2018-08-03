@@ -1,4 +1,4 @@
-import GameObjects.Player;
+package Rest;
 
 public class HitManager {
 

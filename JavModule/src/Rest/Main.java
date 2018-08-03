@@ -1,3 +1,5 @@
+package Rest;
+
 import java.io.IOException;
 
 public class Main {

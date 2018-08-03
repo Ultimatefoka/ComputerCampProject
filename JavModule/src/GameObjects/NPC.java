@@ -8,28 +8,30 @@ public abstract class NPC {
     private int x;
     private int y;
     private String map;
-    private ArrayList<Waypoint> targets;
+    private ArrayList<Vector> targets;
+    private int speed;
 
-    public NPC (String graphic, String name, int x, int y, String map) {
+    public NPC (String graphic, String name, int x, int y, String map,int speed) {
 
         this.graphic = graphic;
         this.name = name;
         this.x = x;
         this.y = y;
         this.map = map;
+        this.speed=speed;
 
     }
 
 
-    public void addWaypoint(int x, int y) {
-        targets.add(new Waypoint(x,y));
+    public void addVector(int x, int y) {
+        targets.add(new Vector(x,y));
     }
 
-    public void removeWaypoint(int index) {
+    public void removeVector(int index) {
         targets.remove(index);
     }
 
-    public ArrayList<Waypoint> getTargets() {
+    public ArrayList<Vector> getTargets() {
         return targets;
     }
 
@@ -74,19 +76,19 @@ public abstract class NPC {
     }
 
     public void MoveUp(){
-        y+=1;
+        y+=speed;
     }
 
     public void MoveRight(){
-        x+=1;
+        x+=speed;
     }
 
     public void MoveLeft(){
-        x-=1;
+        x-=speed;
     }
 
     public void MoveDown(){
-        y-=1;
+        y-=speed;
     }
 
 }

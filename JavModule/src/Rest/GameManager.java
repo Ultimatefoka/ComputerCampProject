@@ -1,7 +1,6 @@
-import GameObjects.Door;
-import GameObjects.HostileNPC;
-import GameObjects.Player;
-import GameObjects.Tile;
+package Rest;
+
+import GameObjects.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -126,6 +125,12 @@ public class GameManager implements InputListener{
                     break;
             }
         }
+        for(HostileNPC npc:hNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
+            npc.move();
+        }
+        /*for(NeutralNPC npc:nNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
+            npc.walkPathing();
+        }*/
     }
 
     private void checkPlayerAttack() {
@@ -317,6 +322,15 @@ public class GameManager implements InputListener{
     public ArrayList<HostileNPC> hNPCsInMap(String name){
         ArrayList<HostileNPC> npcs = new ArrayList<>();
         for (HostileNPC npc : Data.getGameAssetsInstance().getHostileNPCs()) {
+            if (name.equals(npc.getMap())) {
+                npcs.add(npc);
+            }
+        }
+        return npcs;
+    }
+    public ArrayList<NeutralNPC> nNPCsInMap(String name){
+        ArrayList<NeutralNPC> npcs = new ArrayList<>();
+        for (NeutralNPC npc : Data.getGameAssetsInstance().getNeutralNPCs()) {
             if (name.equals(npc.getMap())) {
                 npcs.add(npc);
             }
