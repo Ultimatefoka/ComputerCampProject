@@ -151,10 +151,18 @@ public class GameManager implements InputListener{
     private void checkPlayerCollision(InputManager.Event event, Player currentPlayer) throws IOException {
 
         if(CollisionManager.getCollisionManagerInstance().collidesWithDoor(currentPlayer)) {
-
-            Data.getGameAssetsInstance().getPlayer().setMapName(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetMap());
+            String targetMap =Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetMap();
+            Data.getGameAssetsInstance().getPlayer().setMapName(targetMap);
             Data.getGameAssetsInstance().getPlayer().setX(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetX());
             Data.getGameAssetsInstance().getPlayer().setY(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetY());
+            /*for(HostileNPC npc:hNPCsInMap(targetMap)){
+                npc.setX(npc.getStartX());
+                npc.setY(npc.getStartY());
+            }
+            for(NeutralNPC npc:nNPCsInMap(targetMap)){
+                npc.setX(npc.getStartX());
+                npc.setY(npc.getStartY());
+            }*/
 
             switch (event) {
 
