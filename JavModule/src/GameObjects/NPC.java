@@ -12,8 +12,8 @@ public abstract class NPC {
     private String map;
     private ArrayList<Vector> targets;
     private int speed;
-    private State state = State.ALIVE;
-    
+    private State state;
+
 
     public enum State {
 

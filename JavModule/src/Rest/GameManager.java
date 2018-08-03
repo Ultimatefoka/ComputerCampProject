@@ -99,12 +99,12 @@ public class GameManager implements InputListener{
     public void update() throws IOException {
         for (int i = 0; i < events.size(); i++) {
             InputManager.Event event = events.remove(i);
-            Player currentPlayer = new Player(
+            Player currentPlayer = Data.getGameAssetsInstance().getPlayer();/*new Player(
 
                     Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(),
-                    Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY()
+                    Data.getGameAssetsInstance().getPlayer().getPosition()
 
-            );
+            );*/
 
             switch (event) {
                 case MOVE_DOWN:
@@ -133,6 +133,7 @@ public class GameManager implements InputListener{
         for(HostileNPC npc:hNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
             npc.move();
         }
+        System.out.println(Data.getGameAssetsInstance().getPlayer().getPosition());
         /*for(NeutralNPC npc:nNPCsInMap(Data.getGameAssetsInstance().getPlayer().getMapName())) {
             npc.walkPathing();
         }*/

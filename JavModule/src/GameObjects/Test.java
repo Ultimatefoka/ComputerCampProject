@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Test {
 
     private static int n = 1;
-    private static Player test = new Player(new ArrayList<>(), "s", 1,1);
+    private static Player test = new Player(new ArrayList<>(), "s", new Vector(100,100));
     private static Vector alpha = new Vector(1, 10);
     private static Vector beta = new Vector(0,0);
 

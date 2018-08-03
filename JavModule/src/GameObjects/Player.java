@@ -11,9 +11,9 @@ public class Player {
     private int damage;
     private int damageRadius;
     private int degrees;
-    private Vector velocity;
-    private double friction; //Would be set by each object, (0 < f < 1)
-    private double acceleration; //Would be set by each object
+    private Vector velocity = new Vector(0,0);;
+    private double friction = 0.5;; //Would be set by each object, (0 < f < 1)
+    private double acceleration= 0.2; //Would be set by each object
 
     public enum Facing {
 
@@ -27,15 +27,13 @@ public class Player {
         }
     }
 
-    public Player(ArrayList<String> sprites,String mapName, int x, int y) {
+    public Player(ArrayList<String> sprites,String mapName, Vector position) {
 
         this.sprites = sprites;
         this.mapName = mapName;
         facing = Facing.DOWN;
-        position = new Vector((double)x, (double)y);
-        velocity = new Vector(0,0);
-        acceleration = 0.2;
-        friction = 0.5;
+        this.position = position;
+
 
     }
 
@@ -57,7 +55,7 @@ public class Player {
 
     public void moveRight() {
 
-        facing = Facing.UP;
+        facing = Facing.RIGHT;
         this.velocity = velocity.add(new Vector(3,0).scale(acceleration).substract(velocity.scale(friction)));
         this.position = position.add(velocity);
 
@@ -65,7 +63,7 @@ public class Player {
 
     public void moveLeft() {
 
-        facing = Facing.UP;
+        facing = Facing.LEFT;
         this.velocity = velocity.add(new Vector(-3,0).scale(acceleration).substract(velocity.scale(friction)));
         this.position = position.add(velocity);
 
@@ -157,5 +155,9 @@ public class Player {
 
         return sprites.get(facing.n);
 
+    }
+
+    public Vector getPosition() {
+        return this.position;
     }
 }
