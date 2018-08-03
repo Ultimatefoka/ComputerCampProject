@@ -106,18 +106,15 @@ public class GameManager implements InputListener{
             for(int i = 0;i < HitManager.getHitManagerInstance().getHostileNPCsHit().size(); i++) {
 
                 if(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getState() != NPC.State.DEAD) {
-                    
+
                     Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
                     System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth());
-                    if (Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() < 0) {
+                    if (Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() <= 0) {
 
                         Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).setState(NPC.State.DEAD);
                     }
                 }
             }
-
-            //Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
-            //System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCHit()).getHealth());
         }
     }
 
@@ -128,14 +125,6 @@ public class GameManager implements InputListener{
             Data.getGameAssetsInstance().getPlayer().setMapName(targetMap);
             Data.getGameAssetsInstance().getPlayer().setX(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetX());
             Data.getGameAssetsInstance().getPlayer().setY(Data.getGameAssetsInstance().getDoors().get(CollisionManager.getCollisionManagerInstance().getCollidedDoor()).getTargetY());
-            /*for(HostileNPC npc:hNPCsInMap(targetMap)){
-                npc.setX(npc.getStartX());
-                npc.setY(npc.getStartY());
-            }
-            for(NeutralNPC npc:nNPCsInMap(targetMap)){
-                npc.setX(npc.getStartX());
-                npc.setY(npc.getStartY());
-            }*/
 
             switch (event) {
 
