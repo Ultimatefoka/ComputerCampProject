@@ -24,8 +24,12 @@ public class HitManager {
         for(int i = 0; i < Data.getGameAssetsInstance().getHostileNPCs().size(); i++) {
 
             double radius = Math.sqrt(((Math.abs(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY())) + (Math.abs(Data.getGameAssetsInstance().getHostileNPCs().get(i).getX() - Data.getGameAssetsInstance().getPlayer().getX()))));
-            double tan = Math.atan(Math.abs(Data.getGameAssetsInstance().getPlayer().getX() - Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()) / Math.abs(Data.getGameAssetsInstance().getPlayer().getX() - Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()));
-
+            double tan = Math.atan((double)Math.abs(Data.getGameAssetsInstance().getPlayer().getX() - (double)Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()) / Math.abs((double)Data.getGameAssetsInstance().getPlayer().getY() - (double)Data.getGameAssetsInstance().getHostileNPCs().get(i).getY()));
+            if(Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap())) {
+                System.out.println(tan);
+                System.out.println(Math.abs(Data.getGameAssetsInstance().getPlayer().getX() - Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()));
+                System.out.println(Math.abs(Data.getGameAssetsInstance().getPlayer().getY() - Data.getGameAssetsInstance().getHostileNPCs().get(i).getY()));
+            }
             switch(Data.getGameAssetsInstance().getPlayer().getFacing()) {
 
                 case DOWN:
