@@ -22,8 +22,8 @@
 
   "collectibles": [ { "graphic":"placeHolder.jpg", "name":"healing1", "x":"7", "y":"3", "item":"healing1", "map":"map1" } ],
 
-  "hostileNPCs": [ { "graphic":"hostile_NPC", "name":"spider", "x":"500", "y":"500", "health":"6", "map":"map1","speed":"2" },
-    { "graphic":"hostile_NPC", "name":"krakzilla", "x":"400", "y":"200", "health":"30", "map":"map2","speed":"1" } ],
+  "hostileNPCs": [ { "graphic":"hostile_NPC", "name":"spider", "x":"500", "y":"500", "health":"6", "map":"map1","speed":"2", "state":"ALIVE" },
+    { "graphic":"hostile_NPC", "name":"krakzilla", "x":"400", "y":"200", "health":"30", "map":"map2","speed":"1", "state":"ALIVE" } ],
 
   "neutralNPCs": [ { "graphic":"neutral_NPC", "name":"solaire", "x":"300", "y":"300", "map":"map1","speed":"2" },
     { "graphic":"neutral_NPC", "name":"artorias", "x":"600", "y":"450", "map":"map2","speed":"2" } ],

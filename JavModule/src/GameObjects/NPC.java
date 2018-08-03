@@ -12,6 +12,12 @@ public abstract class NPC {
     private String map;
     private ArrayList<Vector> targets;
     private int speed;
+    private State state;
+
+    public enum State {
+
+        DEAD, ALIVE;
+    }
 
     public NPC (String graphic, String name, int x, int y, String map,int speed) {
 
@@ -101,5 +107,13 @@ public abstract class NPC {
 
     public int getStartY() {
         return startY;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }
