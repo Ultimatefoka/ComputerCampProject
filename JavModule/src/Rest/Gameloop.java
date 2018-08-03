@@ -38,35 +38,7 @@ public class Gameloop implements Runnable {
             }
         }
     }
-
-    /* old version
-    public void render(String map) throws IOException {
-        gameframe.clearMapImages();
-        gameframe.clearImages();
-        ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
-        for (int locPosOnFramX = 0; locPosOnFramX < 16; locPosOnFramX++) {
-            for (int locPosOnFramY = 0; locPosOnFramY < 9; locPosOnFramY++) {
-                int gPlayerX = Data.getGameAssetsInstance().getPlayer().getX();
-                int gPlayerY = Data.getGameAssetsInstance().getPlayer().getY();
-                int gTileInMapX = gPlayerX-8+locPosOnFramX;
-                int gTileInMapY = gPlayerY-4+locPosOnFramY;
-                int sizeX = GameManager.getInstance().getCurrentMap()[1].length-1;
-                int sizeY = GameManager.getInstance().getCurrentMap().length-1;
-                if (gTileInMapX < 0 || gTileInMapY < 0 || gTileInMapX > sizeX || gTileInMapY > sizeY) {
-                    gameframe.addImage(Images.getInstance().getBI("black"), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
-                } else {
-                    gameframe.addMapImage(Images.getInstance().getBI(GameManager.getInstance().getCurrentMap()[gTileInMapY][gTileInMapX].getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
-                    for (Door door : doors) {
-                        if(door.getX()==gTileInMapX && door.getY()==gTileInMapY) {
-                            gameframe.addImage(Images.getInstance().getBI(door.getGraphic()), locPosOnFramX * GameManager.getInstance().getTileSize(), locPosOnFramY * GameManager.getInstance().getTileSize());
-                        }
-                    }
-                }
-            }
-        }
-        gameframe.addImage(Images.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * GameManager.getInstance().getTileSize(), 4 * GameManager.getInstance().getTileSize());
-        gameframe.repaint();
-    }*/
+    
 
     public void render(String map) throws IOException {
         gameframe.clearMapImages();
