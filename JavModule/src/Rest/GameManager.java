@@ -105,11 +105,14 @@ public class GameManager implements InputListener{
 
             for(int i = 0;i < HitManager.getHitManagerInstance().getHostileNPCsHit().size(); i++) {
 
-                Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
-                System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth());
-                if(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() < 0) {
+                if(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getState() != NPC.State.DEAD) {
+                    
+                    Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).setHealth(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() - Data.getGameAssetsInstance().getPlayer().getDamage());
+                    System.out.println(Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth());
+                    if (Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).getHealth() < 0) {
 
-                    Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).setState(NPC.State.DEAD);
+                        Data.getGameAssetsInstance().getHostileNPCs().get(HitManager.getHitManagerInstance().getHostileNPCsHit().get(i)).setState(NPC.State.DEAD);
+                    }
                 }
             }
 
