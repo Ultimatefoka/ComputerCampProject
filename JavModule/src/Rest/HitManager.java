@@ -24,8 +24,7 @@ public class HitManager {
         for(int i = 0; i < Data.getGameAssetsInstance().getHostileNPCs().size(); i++) {
 
             double radius = Math.sqrt(((Math.abs(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY())) + (Math.abs(Data.getGameAssetsInstance().getHostileNPCs().get(i).getX() - Data.getGameAssetsInstance().getPlayer().getX()))));
-            double widthX = Math.abs((Data.getGameAssetsInstance().getHostileNPCs().get(i).getX() - Data.getGameAssetsInstance().getPlayer().getX())) * 2;
-            double widthY = Math.abs((Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY())) * 2;
+            double tan = Math.atan(Math.abs(Data.getGameAssetsInstance().getPlayer().getX() - Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()) / Math.abs(Data.getGameAssetsInstance().getPlayer().getX() - Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()));
 
             switch(Data.getGameAssetsInstance().getPlayer().getFacing()) {
 

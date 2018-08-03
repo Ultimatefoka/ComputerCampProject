@@ -58,5 +58,5 @@
   ],
 
   "player": { "sprites":[ "player_hinten", "player_rechts", "player_links", "player_vorne" ], "x":"200", "y":"200", "mapName":"map1", "facing":"DOWN",
-   "damage":"2", "damageRadius":"10", "damageWidth":"200"}
+   "damage":"2", "damageRadius":"10", "degrees":"30"}
 }

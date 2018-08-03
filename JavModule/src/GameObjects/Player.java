@@ -11,7 +11,7 @@ public class Player {
     private Facing facing;
     private int damage;
     private int damageRadius;
-    private int damageWidth;
+    private int degrees;
 
     public enum Facing {
 
@@ -114,15 +114,15 @@ public class Player {
         return damageRadius;
     }
 
-    public int getDamageWidth() {
-        return damageWidth;
+    public int getDegrees() {
+        return degrees;
     }
 
     public void setDamageRadius(int damageRadius) {
         this.damageRadius = damageRadius;
     }
 
-    public void setDamageWidth(int damageWidth) {
-        this.damageWidth = damageWidth;
+    public void setDegrees(int degrees) {
+        this.degrees = degrees;
     }
 }
