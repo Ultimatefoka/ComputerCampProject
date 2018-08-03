@@ -75,26 +75,36 @@ public class Gameloop implements Runnable {
         int sizeY = GameManager.getInstance().getCurrentMap().length - 1;
         ArrayList<Door> doors = GameManager.getInstance().doorsInMap(map);
         ArrayList<HostileNPC> npcs = GameManager.getInstance().hNPCsInMap(map);
-        int startValueX = -(Data.getGameAssetsInstance().getPlayer().getX() % GameManager.getInstance().getTileSize());
-        int startValueY = -(Data.getGameAssetsInstance().getPlayer().getY() % GameManager.getInstance().getTileSize());
+        int playerX = Data.getGameAssetsInstance().getPlayer().getX();
+        int playerY = Data.getGameAssetsInstance().getPlayer().getY();
+        int startValueX = -(playerX % GameManager.getInstance().getTileSize());
+        int startValueY = -(playerY % GameManager.getInstance().getTileSize());
         int locTileInMapX;
         int locTileInMapY;
+        int locPxX0=8*tileSize-playerX;
+        int locPxY0=4*tileSize-playerY;
         for (int locPxPosOnFrameX = startValueX; locPxPosOnFrameX < 17 * tileSize; locPxPosOnFrameX += tileSize) {
             for (int locPxPosOnFrameY = startValueY; locPxPosOnFrameY < 10 * tileSize; locPxPosOnFrameY += tileSize) {
-                locTileInMapX = (int) (Data.getGameAssetsInstance().getPlayer().getX() / tileSize) - 7 + (int) (((locPxPosOnFrameX + tileSize) / tileSize) - 1);
+                locTileInMapX = (int) (playerX / tileSize) - 7 + (int) (((locPxPosOnFrameX + tileSize) / tileSize) - 1);
                 if (startValueX == 0) {
                     locTileInMapX -= 1;
                 }
-                locTileInMapY = (int) (Data.getGameAssetsInstance().getPlayer().getY() / tileSize) - 3 + (int) (((locPxPosOnFrameY + tileSize) / tileSize) - 1);
+                locTileInMapY = (int) (playerY / tileSize) - 3 + (int) (((locPxPosOnFrameY + tileSize) / tileSize) - 1);
                 if (startValueY == 0) {
                     locTileInMapY -= 1;
                 }
-                int locPxInMapX = Data.getGameAssetsInstance().getPlayer().getX() - 7 * tileSize + locPxPosOnFrameX;
-                int locPxInMapY = Data.getGameAssetsInstance().getPlayer().getY() - 3 * tileSize + locPxPosOnFrameY;
+                if(locTileInMapX==0&&locTileInMapY==0){
+                    locPxX0=locPxPosOnFrameX;
+                    locPxY0=locPxPosOnFrameY;
+                }
+                int locPxInMapX = playerX - 7 * tileSize + locPxPosOnFrameX;
+                int locPxInMapY = playerY - 3 * tileSize + locPxPosOnFrameY;
+                //render Map
                 if (locTileInMapX < 0 || locTileInMapY < 0 || locTileInMapX > sizeX || locTileInMapY > sizeY) {
                     gameframe.addImage(GameManager.getInstance().getBI("black"), locPxPosOnFrameX, locPxPosOnFrameY);
                 } else {
                     gameframe.addMapImage(GameManager.getInstance().getBI(GameManager.getInstance().getCurrentMap()[locTileInMapY][locTileInMapX].getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
+                    //render Doors
                     for (Door door : doors) {
                         if (door.getX() == locTileInMapX && door.getY() == locTileInMapY) {
                             gameframe.addImage(GameManager.getInstance().getBI(door.getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
@@ -103,10 +113,12 @@ public class Gameloop implements Runnable {
                 }
             }
         }
-        /*for (HostileNPC npc : npcs) {
-            gameframe.addImage(GameManager.getInstance().getBI(npc.getGraphic()), locPxPosOnFrameX, locPxPosOnFrameY);
-        }*/
-        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 * GameManager.getInstance().getTileSize(), 4 * GameManager.getInstance().getTileSize());
+        //render NPCs
+        for (HostileNPC npc : npcs) {
+            gameframe.addImage(GameManager.getInstance().getBI(npc.getGraphic()), locPxX0+npc.getX(), locPxY0+npc.getY());
+        }
+        //render Player
+        gameframe.addImage(GameManager.getInstance().getBI(Data.getGameAssetsInstance().getPlayer().getGraphic()), 8 *tileSize, 4 * tileSize);
         gameframe.repaint();
     }
 }
