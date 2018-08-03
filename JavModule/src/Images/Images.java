@@ -40,6 +40,7 @@ public class Images {
     private BufferedImage wand_graueziegel = ImageIO.read(Images.class.getResourceAsStream("/Images/wand_graueziegel.png"));
     private BufferedImage wand_stein = ImageIO.read(Images.class.getResourceAsStream("/Images/wand_stein.png"));
     private BufferedImage player_vorne = ImageIO.read(Images.class.getResourceAsStream("/Images/player_vorne.png"));
+    private BufferedImage player_vorne_schlagen = ImageIO.read(Images.class.getResourceAsStream("/Images/player_vorne_schlagen.png"));
     private BufferedImage player_hinten = ImageIO.read(Images.class.getResourceAsStream("/Images/player_hinten.png"));
     private BufferedImage player_links = ImageIO.read(Images.class.getResourceAsStream("/Images/player_links.png"));
     private BufferedImage player_rechts = ImageIO.read(Images.class.getResourceAsStream("/Images/player_rechts.png"));
@@ -131,6 +132,9 @@ public class Images {
                 return boden_erde;
             case "player_vorne":
                 return player_vorne;
+
+            case "player_vorne_schlagen":
+                return player_vorne_schlagen;
             case "player_hinten":
                 return player_hinten;
             case "player_links":

@@ -44,6 +44,7 @@ public class Gameloop implements Runnable {
     public void render(String map) throws IOException {
         gameframe.clearMapImages();
         gameframe.clearImages();
+        //Komische Berechnung(da blick ich selbst nicht mehr ganz durch)
         int tileSize = GameManager.getInstance().getTileSize();
         int sizeX = GameManager.getInstance().getCurrentMap()[1].length - 1;
         int sizeY = GameManager.getInstance().getCurrentMap().length - 1;
