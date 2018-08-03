@@ -17,42 +17,6 @@ public class HitManager {
 
     public boolean hitsHostileNPC() {
 
-        /*for(int i = 0; i < Data.getGameAssetsInstance().getHostileNPCs().size(); i++) {
-
-            switch(Data.getGameAssetsInstance().getPlayer().getFacing()) {
-
-                /*case DOWN:
-                    if(Data.getGameAssetsInstance().getPlayer().getY()+1 == Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() && Data.getGameAssetsInstance().getPlayer().getX() == Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()) {
-                        hostileNPCHit = i;
-                        return true;
-                    }
-                    break;
-
-                case UP:
-                    if(Data.getGameAssetsInstance().getPlayer().getY()-1 == Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() && Data.getGameAssetsInstance().getPlayer().getX() == Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()) {
-                        hostileNPCHit = i;
-                        return true;
-                    }
-                    break;
-
-                case LEFT:
-                    if(Data.getGameAssetsInstance().getPlayer().getY() == Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() && Data.getGameAssetsInstance().getPlayer().getX()-1 == Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()) {
-                        hostileNPCHit = i;
-                        return true;
-                    }
-                    break;
-
-                case RIGHT:
-                    if(Data.getGameAssetsInstance().getPlayer().getY() == Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() && Data.getGameAssetsInstance().getPlayer().getX()+1 == Data.getGameAssetsInstance().getHostileNPCs().get(i).getX()) {
-                        hostileNPCHit = i;
-                        return true;
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }*/
-
         for(int i = 0; i < Data.getGameAssetsInstance().getHostileNPCs().size(); i++) {
 
             double radius = Math.sqrt((Math.abs(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY())) + (Math.abs(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY())));

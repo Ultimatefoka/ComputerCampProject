@@ -20,7 +20,7 @@ public class CollisionManager {
 
     public boolean collidesWithObstacle(Player player, Tile[][] map) throws IOException {
 
-        if(map[(int)(player.getY()/GameManager.getInstance().getTileSize())][(int)(player.getX()/GameManager.getInstance().getTileSize())].isTraversable()) {
+        if(map[(int)((player.getY()+50)/GameManager.getInstance().getTileSize())][(int)((player.getX()+32)/GameManager.getInstance().getTileSize())].isTraversable()) {
             return false;
         }
 
@@ -31,7 +31,7 @@ public class CollisionManager {
 
         for(int i = 0; i < Data.getGameAssetsInstance().getDoors().size(); i++) {
 
-            if(player.getMapName().equals(Data.getGameAssetsInstance().getDoors().get(i).getMap()) && computeTileX(player.getX()) == Data.getGameAssetsInstance().getDoors().get(i).getX() && computeTileY(player.getY()) == Data.getGameAssetsInstance().getDoors().get(i).getY()) {
+            if(player.getMapName().equals(Data.getGameAssetsInstance().getDoors().get(i).getMap()) && computeTileX(player.getX()+32) == Data.getGameAssetsInstance().getDoors().get(i).getX() && computeTileY(player.getY()+50) == Data.getGameAssetsInstance().getDoors().get(i).getY()) {
 
                 collidedDoor = i;
                 return true;
