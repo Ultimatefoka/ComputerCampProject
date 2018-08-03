@@ -12,7 +12,7 @@ public class Player {
     private int damageRadius;
     private int degrees;
     private Vector velocity = new Vector(0,0);;
-    private double friction = 0.5;; //Would be set by each object, (0 < f < 1)
+    private double friction = 0.5; //Would be set by each object, (0 < f < 1)
     private double acceleration= 0.2; //Would be set by each object
 
     public enum Facing {
