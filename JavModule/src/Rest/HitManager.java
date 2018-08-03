@@ -29,25 +29,25 @@ public class HitManager {
             switch(Data.getGameAssetsInstance().getPlayer().getFacing()) {
 
                 case DOWN:
-                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY() > 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap())) {
+                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY() > 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap()) && Data.getGameAssetsInstance().getPlayer().getDegrees() > tan) {
 
                         hostileNPCsHit.add(i);
                     break;
             }
                 case RIGHT:
-                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getX() - Data.getGameAssetsInstance().getPlayer().getX() > 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap())) {
+                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getX() - Data.getGameAssetsInstance().getPlayer().getX() > 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap()) && Data.getGameAssetsInstance().getPlayer().getDegrees() > tan) {
 
                         hostileNPCsHit.add(i);
                     }
                     break;
                 case LEFT:
-                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getX() - Data.getGameAssetsInstance().getPlayer().getX() < 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap())) {
+                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getX() - Data.getGameAssetsInstance().getPlayer().getX() < 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap()) && Data.getGameAssetsInstance().getPlayer().getDegrees() > tan) {
 
                         hostileNPCsHit.add(i);
                     }
                     break;
                 case UP:
-                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY() < 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap())) {
+                    if(Data.getGameAssetsInstance().getHostileNPCs().get(i).getY() - Data.getGameAssetsInstance().getPlayer().getY() < 0 && radius <= Data.getGameAssetsInstance().getPlayer().getDamageRadius() && Data.getGameAssetsInstance().getPlayer().getMapName().equals(Data.getGameAssetsInstance().getHostileNPCs().get(i).getMap()) && Data.getGameAssetsInstance().getPlayer().getDegrees() > tan) {
 
                         hostileNPCsHit.add(i);
                     }

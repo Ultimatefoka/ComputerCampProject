@@ -102,10 +102,7 @@ public class GameManager implements InputListener{
             Player currentPlayer = new Player(
 
                     Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(),
-                    Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY(),
-                    Data.getGameAssetsInstance().getPlayer().getFacing(), Data.getGameAssetsInstance().getPlayer().getDamage(),
-                    Data.getGameAssetsInstance().getPlayer().getDamageRadius(), Data.getGameAssetsInstance().getPlayer().getDamageWidth()
-
+                    Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY()
             );
 
             switch (event) {
