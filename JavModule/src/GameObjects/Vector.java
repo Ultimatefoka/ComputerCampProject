@@ -2,10 +2,10 @@ package GameObjects;
 
 public class Vector {
 
-    private float x;
-    private float y;
+    private double x;
+    private double y;
 
-    public Vector(float x, float y) {
+    public Vector(double x, double y) {
 
         this.x = x;
         this.y = y;
@@ -20,27 +20,23 @@ public class Vector {
         return new Vector(this.getX() - vector.getX(), this.getY() - vector.getY());
     }
 
-    public Vector scale(float s) {
+    public Vector scale(double s) {
         return new Vector(this.getX() * s, this.getY() * s);
     }
 
-    public float crossProduct(Vector vector) {
-        return (this.getX() * vector.getY() - vector.getX() - this.getY());
-    }
-
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setY(int y) {
-        this.x = x;
+    public void setY(double y) {
+        this.y = y;
     }
 
-    public float getX() {
-        return this.x;
+    public double getX() {
+        return x;
     }
 
-    public float getY() {
+    public double getY() {
         return y;
     }
 
