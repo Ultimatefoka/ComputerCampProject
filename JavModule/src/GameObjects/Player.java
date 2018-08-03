@@ -67,19 +67,19 @@ public class Player {
         this.mapName = mapName;
     }
 
-    public void MoveUp(){
+    public void moveUp(){
         facing = Facing.UP;
         y-=3;
     }
-    public void MoveRight(){
+    public void moveRight(){
         facing = Facing.RIGHT;
         x+=3;
     }
-    public void MoveLeft(){
+    public void moveLeft(){
         facing = Facing.LEFT;
         x-=3;
     }
-    public void MoveDown(){
+    public void moveDown(){
         facing = Facing.DOWN;
         y+=3;
     }
