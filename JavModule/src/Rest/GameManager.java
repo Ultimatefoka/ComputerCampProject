@@ -61,7 +61,6 @@ public class GameManager implements InputListener{
 
                     Data.getGameAssetsInstance().getPlayer().getSprites(),Data.getGameAssetsInstance().getPlayer().getMapName(),
                     Data.getGameAssetsInstance().getPlayer().getX(), Data.getGameAssetsInstance().getPlayer().getY()
-
             );
 
             switch (event) {
